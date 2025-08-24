@@ -66,10 +66,24 @@
             
             <!-- 视频教程 -->
             <div class="max-w-4xl mx-auto">
-                <video class="w-full rounded-2xl shadow-2xl" controls="" muted="" poster="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 800 450&#39;%3E%3Crect width=&#39;800&#39; height=&#39;450&#39; fill=&#39;%23f3f4f6&#39;/%3E%3Ctext x=&#39;50%25&#39; y=&#39;50%25&#39; dominant-baseline=&#39;middle&#39; text-anchor=&#39;middle&#39; font-family=&#39;Inter&#39; font-size=&#39;24&#39; fill=&#39;%236b7280&#39;%3E视频教程%3C/text%3E%3C/svg%3E">
-                    <source src="http://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/514196921671.mp4" type="video/mp4">
-                    您的浏览器不支持视频播放
-                </video>
+                <div class="relative w-full rounded-2xl shadow-2xl overflow-hidden bg-gray-900">
+                    <video class="w-full" controls="" muted="" preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2314b8a6'/%3E%3Cstop offset='100%25' style='stop-color:%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23grad)'/%3E%3Ccircle cx='400' cy='225' r='60' fill='rgba(255,255,255,0.2)'/%3E%3Cpolygon points='385,200 385,250 425,225' fill='white'/%3E%3Ctext x='50%25' y='380' text-anchor='middle' font-family='Inter' font-size='20' fill='white' font-weight='600'%3EChatGPT Plus 充值教程%3C/text%3E%3C/svg%3E">
+                        <source src="http://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/514196921671.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                    <!-- 加载占位 -->
+                    <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-teal-500 to-indigo-600" id="videoPlaceholder">
+                        <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <p class="text-white font-semibold text-lg">ChatGPT Plus 充值教程</p>
+                            <p class="text-white/70 text-sm mt-2">点击播放完整教程</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -392,6 +406,22 @@
             const isDark = document.documentElement.classList.contains('dark');
             darkModeIcon.textContent = isDark ? '☀️' : '🌙';
         });
+
+        // 视频加载完成后隐藏占位符
+        const video = document.querySelector('video');
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        
+        if (video && videoPlaceholder) {
+            video.addEventListener('loadeddata', function() {
+                videoPlaceholder.style.display = 'none';
+            });
+            
+            // 如果视频加载失败，也隐藏占位符并显示错误
+            video.addEventListener('error', function() {
+                videoPlaceholder.style.display = 'none';
+                video.style.display = 'block';
+            });
+        }
 
         // 平滑滚动增强
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
