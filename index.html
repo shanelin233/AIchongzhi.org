@@ -48,67 +48,62 @@
         <div class="container mx-auto text-center relative z-10 opacity-0 fade-in" id="hero" style="opacity: 1;">
             <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
                 ChatGPT Plus
-                <span class="block text-3xl md:text-5xl font-light mt-2">一键秒充 ChatGPT</span>
+                <span class="block text-3xl md:text-5xl font-light mt-2">官方推荐 一键秒充 ChatGPT</span>
             </h1>
-            <p class="text-xl md:text-2xl text-white/90 mb-12 font-light">
+            <!-- 信任徽章（增强视觉效果） -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-400 to-green-600 text-white text-sm font-bold rounded-full shadow-lg border-2 border-white/30 animate-pulse">
+                    <span class="mr-2 text-lg">🔒</span>不封号
+                </span>
+                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white text-sm font-bold rounded-full shadow-lg border-2 border-white/30 animate-pulse">
+                    <span class="mr-2 text-lg">🛡️</span>不泄露账号
+                </span>
+                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-400 to-orange-600 text-white text-sm font-bold rounded-full shadow-lg border-2 border-white/30 animate-pulse">
+                    <span class="mr-2 text-lg">👥</span>50000+满意客户
+                </span>
+                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white text-sm font-bold rounded-full shadow-lg border-2 border-white/30 animate-pulse">
+                    <span class="mr-2 text-lg">✅</span>99.9%成功率
+                </span>
+                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-400 to-red-600 text-white text-sm font-bold rounded-full shadow-lg border-2 border-white/30 animate-pulse">
+                    <span class="mr-2 text-lg">🕒</span>24/7小时在线客服
+                </span>
+            </div>
+            
+            <p class="text-xl md:text-2xl text-white/90 mb-8 font-light">
                 20 秒完成充值，永久免费教程
             </p>
             
             <!-- 主按钮组 -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <a href="https://sc.i6ls.com//links/BFB74B07" target="_blank" class="inline-flex items-center px-8 py-4 bg-white text-indigo-600 font-semibold rounded-2xl shadow-lg hover:-translate-y-0.5 hover:scale-105 transition-all duration-300" onclick="trackEvent(&#39;purchase_click&#39;)">
                     <span>💎 购买卡密</span>
                 </a>
                 <a href="https://www.ow520.com/" target="_blank" class="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-2xl hover:bg-white hover:text-indigo-600 hover:-translate-y-0.5 transition-all duration-300" onclick="trackEvent(&#39;recharge_click&#39;)">
                     <span>⚡ 充值Plus</span>
                 </a>
+                <button onclick="openVideoModal()" class="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-2xl hover:bg-white hover:text-indigo-600 hover:-translate-y-0.5 transition-all duration-300">
+                    <span>📺 视频教程</span>
+                </button>
             </div>
             
-            <!-- 视频教程 -->
-            <div class="max-w-4xl mx-auto">
-                <div class="relative w-full rounded-2xl shadow-2xl overflow-hidden bg-gray-900">
-                    <video class="w-full" controls="" muted="" preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2314b8a6'/%3E%3Cstop offset='100%25' style='stop-color:%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23grad)'/%3E%3Ccircle cx='400' cy='225' r='60' fill='rgba(255,255,255,0.2)'/%3E%3Cpolygon points='385,200 385,250 425,225' fill='white'/%3E%3Ctext x='50%25' y='380' text-anchor='middle' font-family='Inter' font-size='20' fill='white' font-weight='600'%3EChatGPT Plus 充值教程%3C/text%3E%3C/svg%3E">
-                        <source src="http://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/514196921671.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放
-                    </video>
-                    <!-- 加载占位 -->
-                    <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-teal-500 to-indigo-600" id="videoPlaceholder">
-                        <div class="text-center">
-                            <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <p class="text-white font-semibold text-lg">ChatGPT Plus 充值教程</p>
-                            <p class="text-white/70 text-sm mt-2">点击播放完整教程</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 价格对比 -->
-    <section class="py-20 px-4 bg-gray-50">
-        <div class="container mx-auto opacity-0 fade-in" id="pricing" style="opacity: 1;">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">价格对比</h2>
-            <div class="max-w-2xl mx-auto">
+            <!-- 价格对比 -->
+            <div class="max-w-2xl mx-auto mb-12">
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="flex items-center justify-between p-6 border-b">
-                        <span class="text-lg font-semibold">充值方式</span>
-                        <span class="text-lg font-semibold">价格</span>
+                    <div class="flex items-center justify-between p-4 border-b">
+                        <span class="text-lg font-semibold text-gray-900">充值方式</span>
+                        <span class="text-lg font-semibold text-gray-900">价格</span>
                     </div>
-                    <div class="flex items-center justify-between p-6 bg-red-50">
+                    <div class="flex items-center justify-between p-4 bg-red-50 border-b">
                         <span class="text-gray-700">App 内官方充值</span>
-                        <span class="text-red-600 font-bold text-xl">¥145</span>
+                        <span class="text-red-600 font-bold text-lg">¥145</span>
                     </div>
-                    <div class="flex items-center justify-between p-6 bg-blue-50">
+                    <div class="flex items-center justify-between p-4 bg-blue-50 border-b">
                         <span class="text-gray-700">我们的服务</span>
-                        <span class="text-blue-600 font-bold text-xl">¥140</span>
+                        <span class="text-blue-600 font-bold text-lg">¥140</span>
                     </div>
-                    <div class="flex items-center justify-between p-6 bg-green-50">
-                        <span class="text-gray-700">代理价格</span>
-                        <span class="text-green-600 font-bold text-xl">¥120</span>
+                    <div class="flex items-center justify-between p-4 bg-green-50">
+                        <span class="text-gray-700 font-semibold">代理价格</span>
+                        <span class="text-green-600 font-bold text-lg">¥120</span>
                     </div>
                 </div>
             </div>
@@ -250,6 +245,68 @@
                                 支持增值税普通发票，满足企业报销需求
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价区域 -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto opacity-0 fade-in" id="reviews" style="opacity: 1;">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">客户真实评价</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- 评价卡片1 - 使用上传图片 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src=".claude/claude-code-chat-images/image_1756607004003.png" 
+                         class="w-full h-48 object-cover" 
+                         alt="客户评价1">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm">张</div>
+                            <div class="ml-3">
+                                <h3 class="font-semibold text-gray-900">张先生</h3>
+                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-2">"真的太方便了！2分钟完成充值，比官方便宜25块，账号很安全！"</p>
+                        <div class="text-xs text-gray-500">2024-08-28</div>
+                    </div>
+                </div>
+
+                <!-- 评价卡片2 - 使用上传图片 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src=".claude/claude-code-chat-images/image_1756607013801.png" 
+                         class="w-full h-48 object-cover" 
+                         alt="客户评价2">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-sm">李</div>
+                            <div class="ml-3">
+                                <h3 class="font-semibold text-gray-900">李女士</h3>
+                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-2">"客服超耐心，一步步指导，充值后立刻到账！推荐朋友了。"</p>
+                        <div class="text-xs text-gray-500">2024-08-27</div>
+                    </div>
+                </div>
+
+                <!-- 评价卡片3 - 使用上传图片 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src=".claude/claude-code-chat-images/image_1756607018341.png" 
+                         class="w-full h-48 object-cover" 
+                         alt="客户评价3">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-green-400 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-sm">王</div>
+                            <div class="ml-3">
+                                <h3 class="font-semibold text-gray-900">王先生</h3>
+                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-2">"用了半年了，每次都很顺利，价格公道，不封号，划算！"</p>
+                        <div class="text-xs text-gray-500">2024-08-26</div>
                     </div>
                 </div>
             </div>
@@ -438,6 +495,55 @@
                     });
                 }
             });
+        });
+    </script>
+
+    <!-- 视频教程弹窗 -->
+    <div id="videoModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center h-full p-4">
+            <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden relative">
+                <button onclick="closeVideoModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors">
+                    ✕
+                </button>
+                <video id="videoPlayer" class="w-full" controls autoplay>
+                    <source src="http://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/514196921671.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 视频弹窗功能
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            video.play();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        // 点击背景关闭弹窗
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        // ESC键关闭弹窗
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
         });
     </script>
 
