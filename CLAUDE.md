@@ -88,3 +88,21 @@ AIchongzhi.org/
 - Customer support via external WeChat contact
 - No server-side processing (static site)
 - External payment processing via third-party services
+
+## Git操作规范
+
+### 每次修改前的标准流程
+1. **检查当前状态** - `git status`
+2. **查看变更内容** - `git diff`
+3. **提交当前状态** - 使用规范的commit信息
+4. **实施修改** - 按照计划执行变更
+5. **提交修改** - 使用描述性commit信息
+
+### Commit信息模板
+```
+[功能/修复/优化]: 简要描述
+- 具体变更点1
+- 具体变更点2
+🤖 Generated with [Claude Code](https://claude.ai/code)
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
