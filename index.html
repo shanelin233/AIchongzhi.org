@@ -50,22 +50,22 @@
                 ChatGPT Plus
                 <span class="block text-3xl md:text-5xl font-light mt-2">官方推荐 一键秒充 ChatGPT</span>
             </h1>
-            <!-- 信任徽章（静态效果） -->
-            <div class="flex flex-wrap justify-center gap-3 mb-8">
-                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-400 to-green-600 text-white text-sm font-bold rounded-full border-2 border-white/30">
-                    <span class="mr-2 text-lg">🔒</span>不封号
+            <!-- 信任徽章（移动端优化） -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+                <span class="inline-flex items-center px-3 py-1 sm:px-4 sm:py-2 bg-gradient-to-r from-green-400 to-green-600 text-white text-xs sm:text-sm font-bold rounded-full border-2 border-white/30">
+                    <span class="mr-1 sm:mr-2 text-base sm:text-lg">🔒</span>不封号
                 </span>
-                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white text-sm font-bold rounded-full border-2 border-white/30">
-                    <span class="mr-2 text-lg">🛡️</span>不泄露账号
+                <span class="inline-flex items-center px-3 py-1 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white text-xs sm:text-sm font-bold rounded-full border-2 border-white/30">
+                    <span class="mr-1 sm:mr-2 text-base sm:text-lg">🛡️</span>不泄露账号
                 </span>
-                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-400 to-orange-600 text-white text-sm font-bold rounded-full border-2 border-white/30">
-                    <span class="mr-2 text-lg">👥</span>50000+满意客户
+                <span class="inline-flex items-center px-3 py-1 sm:px-4 sm:py-2 bg-gradient-to-r from-orange-400 to-orange-600 text-white text-xs sm:text-sm font-bold rounded-full border-2 border-white/30">
+                    <span class="mr-1 sm:mr-2 text-base sm:text-lg">👥</span>50000+满意客户
                 </span>
-                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white text-sm font-bold rounded-full border-2 border-white/30">
-                    <span class="mr-2 text-lg">✅</span>99.9%成功率
+                <span class="inline-flex items-center px-3 py-1 sm:px-4 sm:py-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white text-xs sm:text-sm font-bold rounded-full border-2 border-white/30">
+                    <span class="mr-1 sm:mr-2 text-base sm:text-lg">✅</span>99.9%成功率
                 </span>
-                <span class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-400 to-red-600 text-white text-sm font-bold rounded-full border-2 border-white/30">
-                    <span class="mr-2 text-lg">🕒</span>24/7小时在线客服
+                <span class="inline-flex items-center px-3 py-1 sm:px-4 sm:py-2 bg-gradient-to-r from-red-400 to-red-600 text-white text-xs sm:text-sm font-bold rounded-full border-2 border-white/30">
+                    <span class="mr-1 sm:mr-2 text-base sm:text-lg">🕒</span>24/7小时在线客服
                 </span>
             </div>
             
@@ -474,8 +474,8 @@
                 <button onclick="closeVideoModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors">
                     ✕
                 </button>
-                <video id="videoPlayer" class="w-full" controls autoplay>
-                    <source src="http://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/514196921671.mp4" type="video/mp4">
+                <video id="videoPlayer" class="w-full" controls>
+                    <!-- 视频源将在点击时动态加载 -->
                     您的浏览器不支持视频播放
                 </video>
             </div>
@@ -483,10 +483,22 @@
     </div>
 
     <script>
-        // 视频弹窗功能
+        // 视频弹窗功能（懒加载优化）
         function openVideoModal() {
             const modal = document.getElementById('videoModal');
             const video = document.getElementById('videoPlayer');
+            
+            // 如果没有视频源，动态创建并加载
+            if (!video.querySelector('source')) {
+                const source = document.createElement('source');
+                source.src = 'http://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/514196921671.mp4';
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                
+                // 加载视频
+                video.load();
+            }
+            
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
             video.play();
