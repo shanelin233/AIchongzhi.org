@@ -51,4 +51,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
+  <!-- 博客首页 -->
+  <url>
+    <loc>https://aichongzhi.org/blog/</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ChatGPT Plus使用指南文章 -->
+  <url>
+    <loc>https://aichongzhi.org/blog/chatgpt-plus-guide.html</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ChatGPT Plus与Pro对比文章 -->
+  <url>
+    <loc>https://aichongzhi.org/blog/chatgpt-plus-vs-pro.html</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
