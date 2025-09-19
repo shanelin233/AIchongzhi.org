@@ -70,11 +70,40 @@
             transform: translateX(0) !important;
         }
 
+        /* 博客侧边栏收起状态 */
+        .blog-panel-closed {
+            transform: translateX(100%) !important;
+        }
+
         /* 响应式调整 */
+        @media (max-width: 640px) {
+            #blogSidebar {
+                top: 4px;
+                right: 0;
+            }
+
+            #blogPanel {
+                width: calc(100vw - 1rem);
+                padding: 3rem 1rem 1rem 1rem;
+                border-radius: 0;
+                border-top-left-radius: 1rem;
+                border-bottom-left-radius: 1rem;
+            }
+
+            #blogToggle {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.75rem;
+            }
+
+            /* 移动端文章卡片优化 */
+            .blog-article-card {
+                padding: 0.75rem;
+            }
+        }
+
         @media (max-width: 768px) {
             #blogPanel {
-                width: calc(100vw - 2rem);
-                right: 1rem;
+                width: 18rem;
             }
         }
     </style>
@@ -544,16 +573,17 @@
     </div>
 
     <!-- 博客侧边栏 -->
-    <div class="fixed top-6 right-6 z-40" id="blogSidebar">
+    <div class="fixed top-6 right-0 z-40" id="blogSidebar">
         <!-- 博客标签按钮 -->
         <div class="flex justify-end mb-3">
-            <button id="blogToggle" class="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-4 py-2 rounded-l-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium text-sm">
-                📖 博客推荐
+            <button id="blogToggle" class="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-4 py-2 rounded-l-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium text-sm flex items-center space-x-2">
+                <span>📖 博客推荐</span>
+                <span id="toggleArrow" class="transition-transform duration-300 transform rotate-180">◀</span>
             </button>
         </div>
 
         <!-- 博客内容面板 -->
-        <div id="blogPanel" class="bg-white/95 backdrop-blur-md rounded-xl shadow-2xl p-5 w-80 transform translate-x-full transition-all duration-300 border border-white/20">
+        <div id="blogPanel" class="bg-white/95 backdrop-blur-md rounded-l-xl shadow-2xl p-4 w-80 sm:w-72 md:w-80 transform transition-all duration-300 border border-white/20 blog-panel-open">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-lg font-bold text-gray-800 flex items-center">
                     <span class="mr-2">📚</span>
@@ -564,7 +594,7 @@
 
             <!-- 博客文章列表 -->
             <div class="space-y-3">
-                <div class="flex items-start space-x-3 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500 hover:shadow-md transition-all duration-200 cursor-pointer" onclick="window.open('blog/chatgpt-plus-guide.html', '_blank')">
+                <div class="blog-article-card flex items-start space-x-3 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500 hover:shadow-md transition-all duration-200 cursor-pointer" onclick="window.open('blog/chatgpt-plus-guide.html', '_blank')">
                     <span class="text-2xl flex-shrink-0 mt-1">📚</span>
                     <div class="flex-1">
                         <div class="flex items-center justify-between mb-1">
@@ -576,7 +606,7 @@
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-3 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border-l-4 border-purple-500 hover:shadow-md transition-all duration-200 cursor-pointer" onclick="window.open('blog/chatgpt-plus-vs-pro.html', '_blank')">
+                <div class="blog-article-card flex items-start space-x-3 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border-l-4 border-purple-500 hover:shadow-md transition-all duration-200 cursor-pointer" onclick="window.open('blog/chatgpt-plus-vs-pro.html', '_blank')">
                     <span class="text-2xl flex-shrink-0 mt-1">⚖️</span>
                     <div class="flex-1">
                         <div class="flex items-center justify-between mb-1">
@@ -599,7 +629,7 @@
     </div>
 
     <!-- 暗黑模式切换按钮 -->
-    <div class="fixed top-6 right-6 z-50">
+    <div class="fixed top-6 left-6 z-50">
         <button id="darkModeToggle" class="w-12 h-12 bg-white/20 backdrop-blur-sm text-white rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300">
             <span id="darkModeIcon">🌙</span>
         </button>
@@ -684,20 +714,27 @@
         const blogToggle = document.getElementById('blogToggle');
         const blogPanel = document.getElementById('blogPanel');
         const closeBlog = document.getElementById('closeBlog');
-        let blogPanelOpen = false;
+        const toggleArrow = document.getElementById('toggleArrow');
+        let blogPanelOpen = true; // 默认展开
 
         function toggleBlogPanel() {
             blogPanelOpen = !blogPanelOpen;
             if (blogPanelOpen) {
                 blogPanel.classList.add('blog-panel-open');
+                blogPanel.classList.remove('blog-panel-closed');
+                toggleArrow.style.transform = 'rotate(180deg)';
             } else {
                 blogPanel.classList.remove('blog-panel-open');
+                blogPanel.classList.add('blog-panel-closed');
+                toggleArrow.style.transform = 'rotate(0deg)';
             }
         }
 
         function closeBlogPanel() {
             blogPanelOpen = false;
             blogPanel.classList.remove('blog-panel-open');
+            blogPanel.classList.add('blog-panel-closed');
+            toggleArrow.style.transform = 'rotate(0deg)';
         }
 
         // 事件监听器
