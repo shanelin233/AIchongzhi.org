@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- 首页 - 最高优先级 -->
   <url>
     <loc>https://aichongzhi.org/</loc>
     <lastmod>2024-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://aichongzhi.org/images/image_1756607004003.png</image:loc>
+      <image:caption>ChatGPT Plus充值客户好评截图</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://aichongzhi.org/images/image_1756607013801.png</image:loc>
+      <image:caption>ChatGPT会员代充成功案例</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://aichongzhi.org/images/image_1756607018341.png</image:loc>
+      <image:caption>ChatGPT充值服务用户推荐</image:caption>
+    </image:image>
+  </url>
+
+  <!-- FAQ页面锚点 - 重要内容 -->
+  <url>
+    <loc>https://aichongzhi.org/#faq</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 充值流程部分 -->
+  <url>
+    <loc>https://aichongzhi.org/#steps</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 客户评价部分 -->
+  <url>
+    <loc>https://aichongzhi.org/#reviews</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 服务特色部分 -->
+  <url>
+    <loc>https://aichongzhi.org/#features</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
