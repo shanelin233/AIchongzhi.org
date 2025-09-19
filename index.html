@@ -56,6 +56,27 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* 文本省略号样式 */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* 博客侧边栏展开状态 */
+        .blog-panel-open {
+            transform: translateX(0) !important;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            #blogPanel {
+                width: calc(100vw - 2rem);
+                right: 1rem;
+            }
+        }
     </style>
 
     <!-- Service结构化数据 -->
@@ -522,11 +543,63 @@
         </a>
     </div>
 
-    <!-- 博客入口和暗黑模式切换按钮 -->
-    <div class="fixed top-6 right-6 z-50 flex gap-3">
-        <a href="blog/" class="w-12 h-12 bg-white/20 backdrop-blur-sm text-white rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300" title="博客文章">
-            <span>📝</span>
-        </a>
+    <!-- 博客侧边栏 -->
+    <div class="fixed top-6 right-6 z-40" id="blogSidebar">
+        <!-- 博客标签按钮 -->
+        <div class="flex justify-end mb-3">
+            <button id="blogToggle" class="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-4 py-2 rounded-l-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium text-sm">
+                📖 博客推荐
+            </button>
+        </div>
+
+        <!-- 博客内容面板 -->
+        <div id="blogPanel" class="bg-white/95 backdrop-blur-md rounded-xl shadow-2xl p-5 w-80 transform translate-x-full transition-all duration-300 border border-white/20">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-bold text-gray-800 flex items-center">
+                    <span class="mr-2">📚</span>
+                    推荐阅读
+                </h3>
+                <button id="closeBlog" class="text-gray-500 hover:text-gray-700 text-xl">×</button>
+            </div>
+
+            <!-- 博客文章列表 -->
+            <div class="space-y-3">
+                <div class="flex items-start space-x-3 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500 hover:shadow-md transition-all duration-200 cursor-pointer" onclick="window.open('blog/chatgpt-plus-guide.html', '_blank')">
+                    <span class="text-2xl flex-shrink-0 mt-1">📚</span>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs text-blue-600 font-medium bg-blue-100 px-2 py-1 rounded-full">使用指南</span>
+                            <span class="text-xs text-gray-500">Hot</span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-gray-800 mb-1 line-clamp-2">ChatGPT Plus完整使用指南：从入门到精通</h4>
+                        <p class="text-xs text-gray-600 line-clamp-2">详细介绍ChatGPT Plus的所有功能特性，包括GPT-4模型使用、插件功能...</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-3 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border-l-4 border-purple-500 hover:shadow-md transition-all duration-200 cursor-pointer" onclick="window.open('blog/chatgpt-plus-vs-pro.html', '_blank')">
+                    <span class="text-2xl flex-shrink-0 mt-1">⚖️</span>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs text-purple-600 font-medium bg-purple-100 px-2 py-1 rounded-full">产品对比</span>
+                            <span class="text-xs text-gray-500">New</span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-gray-800 mb-1 line-clamp-2">ChatGPT Plus与ChatGPT Pro全面对比分析</h4>
+                        <p class="text-xs text-gray-600 line-clamp-2">深入对比ChatGPT Plus和Pro版本的功能差异、性能表现...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 查看更多按钮 -->
+            <div class="mt-4 pt-3 border-t border-gray-200">
+                <a href="blog/" class="block w-full text-center py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg font-medium text-sm hover:shadow-lg transition-all duration-300">
+                    查看全部文章 →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 暗黑模式切换按钮 -->
+    <div class="fixed top-6 right-6 z-50">
         <button id="darkModeToggle" class="w-12 h-12 bg-white/20 backdrop-blur-sm text-white rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300">
             <span id="darkModeIcon">🌙</span>
         </button>
@@ -600,11 +673,50 @@
         // 暗黑模式切换
         const darkModeToggle = document.getElementById('darkModeToggle');
         const darkModeIcon = document.getElementById('darkModeIcon');
-        
+
         darkModeToggle.addEventListener('click', function() {
             document.documentElement.classList.toggle('dark');
             const isDark = document.documentElement.classList.contains('dark');
             darkModeIcon.textContent = isDark ? '☀️' : '🌙';
+        });
+
+        // 博客侧边栏功能
+        const blogToggle = document.getElementById('blogToggle');
+        const blogPanel = document.getElementById('blogPanel');
+        const closeBlog = document.getElementById('closeBlog');
+        let blogPanelOpen = false;
+
+        function toggleBlogPanel() {
+            blogPanelOpen = !blogPanelOpen;
+            if (blogPanelOpen) {
+                blogPanel.classList.add('blog-panel-open');
+            } else {
+                blogPanel.classList.remove('blog-panel-open');
+            }
+        }
+
+        function closeBlogPanel() {
+            blogPanelOpen = false;
+            blogPanel.classList.remove('blog-panel-open');
+        }
+
+        // 事件监听器
+        blogToggle.addEventListener('click', toggleBlogPanel);
+        closeBlog.addEventListener('click', closeBlogPanel);
+
+        // 点击面板外部关闭
+        document.addEventListener('click', function(event) {
+            const isClickInsideBlog = event.target.closest('#blogSidebar');
+            if (!isClickInsideBlog && blogPanelOpen) {
+                closeBlogPanel();
+            }
+        });
+
+        // ESC键关闭面板
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && blogPanelOpen) {
+                closeBlogPanel();
+            }
         });
 
         // 视频加载完成后隐藏占位符
