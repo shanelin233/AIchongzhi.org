@@ -16,11 +16,8 @@ const STATIC_ASSETS = [
 // 需要缓存的图片资源
 const IMAGE_ASSETS = [
     'https://aichongzhi.org/images/image_1756607004003.png',
-    'https://aichongzhi.org/images/image_1756607004003.webp',
     'https://aichongzhi.org/images/image_1756607013801.png',
-    'https://aichongzhi.org/images/image_1756607013801.webp',
-    'https://aichongzhi.org/images/image_1756607018341.png',
-    'https://aichongzhi.org/images/image_1756607018341.webp'
+    'https://aichongzhi.org/images/image_1756607018341.png'
 ];
 
 // 安装事件 - 缓存静态资源
