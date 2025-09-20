@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN" class="scroll-smooth"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +6,18 @@
     <!-- 页面性能优化 -->
     <meta http-equiv="Cache-Control" content="max-age=31536000, must-revalidate">
     <meta http-equiv="Expires" content="Wed, 31 Dec 2025 23:59:59 GMT">
+
+    <!-- 资源预连接和预加载 -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="//aichongzhi.org">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+
+    <!-- 预加载关键图片 -->
+    <link rel="preload" href="https://aichongzhi.org/images/image_1756607004003.png" as="image" type="image/png">
 
     <title>ChatGPT Plus充值 - 国内ChatGPT会员代充服务 | 官方安全快速 - AIchongzhi</title>
     <meta name="description" content="专业ChatGPT Plus充值平台，支持国内用户快速升级ChatGPT会员。官方iOS正规代充，20秒完成充值，价格比官方便宜15%。24/7自动充值系统，50000+用户信赖，99.9%成功率。">
@@ -34,20 +41,93 @@
     <meta name="twitter:description" content="国内最可靠的ChatGPT会员充值平台">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 优化字体加载：使用font-display:swap避免FOIT，异步加载避免阻塞渲染 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- 字体预加载关键权重 -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#14B8A6">
+    <!-- 延迟加载Tailwind CSS -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif']
+        // 异步加载Tailwind CSS以优化首屏渲染
+        function loadTailwind() {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.tailwindcss.com';
+            script.onload = function() {
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            fontFamily: {
+                                sans: ['Inter', 'sans-serif']
+                            }
+                        }
                     }
                 }
-            }
+            };
+            document.head.appendChild(script);
+        }
+
+        // 在DOM加载完成后加载Tailwind
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadTailwind);
+        } else {
+            loadTailwind();
         }
     </script>
     <style>
+        /* 关键CSS - 首屏渲染优化 */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; scroll-behavior: smooth; }
+        body { line-height: 1.6; color: #374151; background-color: #ffffff; }
+
+        /* 首屏关键样式 */
+        .hero-container {
+            background: linear-gradient(135deg, #14B8A6 0%, #6366F1 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .btn-primary {
+            background-color: #ffffff;
+            color: #1f2937;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background-color: #f3f4f6; transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .btn-primary { padding: 0.75rem 1.5rem; margin: 0.25rem; }
+        }
+
         /* 隐藏滚动条 */
         ::-webkit-scrollbar { width: 0px; background: transparent; }
         .gradient-bg { background: linear-gradient(135deg, #14B8A6 0%, #6366F1 100%); }
@@ -284,23 +364,41 @@
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- 评价卡片1 - 纯图片展示 -->
                 <div class="w-full">
-                    <img src="https://aichongzhi.org/images/image_1756607004003.png"
-                         class="w-full h-auto object-contain rounded-lg"
-                         alt="ChatGPT Plus充值客户好评截图 - 快速到账服务满意度高" loading="lazy">
+                    <picture>
+                        <source srcset="https://aichongzhi.org/images/image_1756607004003.webp" type="image/webp">
+                        <img src="https://aichongzhi.org/images/image_1756607004003.png"
+                             class="w-full h-auto object-contain rounded-lg"
+                             alt="ChatGPT Plus充值客户好评截图 - 快速到账服务满意度高"
+                             loading="lazy"
+                             decoding="async"
+                             width="400" height="300">
+                    </picture>
                 </div>
 
                 <!-- 评价卡片2 - 纯图片展示 -->
                 <div class="w-full">
-                    <img src="https://aichongzhi.org/images/image_1756607013801.png"
-                         class="w-full h-auto object-contain rounded-lg"
-                         alt="ChatGPT会员代充成功案例 - 20秒完成充值客户反馈" loading="lazy">
+                    <picture>
+                        <source srcset="https://aichongzhi.org/images/image_1756607013801.webp" type="image/webp">
+                        <img src="https://aichongzhi.org/images/image_1756607013801.png"
+                             class="w-full h-auto object-contain rounded-lg"
+                             alt="ChatGPT会员代充成功案例 - 20秒完成充值客户反馈"
+                             loading="lazy"
+                             decoding="async"
+                             width="400" height="300">
+                    </picture>
                 </div>
 
                 <!-- 评价卡片3 - 纯图片展示 -->
                 <div class="w-full">
-                    <img src="https://aichongzhi.org/images/image_1756607018341.png"
-                         class="w-full h-auto object-contain rounded-lg"
-                         alt="ChatGPT充值服务用户推荐 - 安全可靠官方渠道" loading="lazy">
+                    <picture>
+                        <source srcset="https://aichongzhi.org/images/image_1756607018341.webp" type="image/webp">
+                        <img src="https://aichongzhi.org/images/image_1756607018341.png"
+                             class="w-full h-auto object-contain rounded-lg"
+                             alt="ChatGPT充值服务用户推荐 - 安全可靠官方渠道"
+                             loading="lazy"
+                             decoding="async"
+                             width="400" height="300">
+                    </picture>
                 </div>
             </div>
         </div>
@@ -853,5 +951,78 @@
 
  
 
+
+    <!-- Service Worker 注册和性能监控 -->
+    <script>
+        // 性能监控
+        function measurePerformance() {
+            if ('performance' in window) {
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        const perfData = performance.getEntriesByType('navigation')[0];
+                        const metrics = {
+                            'DNS查询': Math.round(perfData.domainLookupEnd - perfData.domainLookupStart),
+                            'TCP连接': Math.round(perfData.connectEnd - perfData.connectStart),
+                            '首字节时间(TTFB)': Math.round(perfData.responseStart - perfData.requestStart),
+                            '资源下载': Math.round(perfData.responseEnd - perfData.responseStart),
+                            'DOM解析': Math.round(perfData.domContentLoadedEventEnd - perfData.domLoading),
+                            '页面完全加载': Math.round(perfData.loadEventEnd - perfData.navigationStart)
+                        };
+
+                        console.group('🚀 页面性能指标');
+                        Object.entries(metrics).forEach(([key, value]) => {
+                            console.log(`${key}: ${value}ms`);
+                        });
+                        console.groupEnd();
+
+                        // Core Web Vitals
+                        if ('PerformanceObserver' in window) {
+                            // LCP (Largest Contentful Paint)
+                            new PerformanceObserver((entryList) => {
+                                const entries = entryList.getEntries();
+                                const lastEntry = entries[entries.length - 1];
+                                console.log('🎯 LCP (最大内容绘制):', Math.round(lastEntry.startTime), 'ms');
+                            }).observe({entryTypes: ['largest-contentful-paint']});
+
+                            // FID (First Input Delay)
+                            new PerformanceObserver((entryList) => {
+                                const entries = entryList.getEntries();
+                                entries.forEach((entry) => {
+                                    console.log('⚡ FID (首次输入延迟):', Math.round(entry.processingStart - entry.startTime), 'ms');
+                                });
+                            }).observe({entryTypes: ['first-input']});
+
+                            // CLS (Cumulative Layout Shift)
+                            let clsValue = 0;
+                            new PerformanceObserver((entryList) => {
+                                for (const entry of entryList.getEntries()) {
+                                    if (!entry.hadRecentInput) {
+                                        clsValue += entry.value;
+                                    }
+                                }
+                                console.log('📐 CLS (累积布局偏移):', clsValue.toFixed(4));
+                            }).observe({entryTypes: ['layout-shift']});
+                        }
+                    }, 1000);
+                });
+            }
+        }
+
+        // 注册Service Worker以提升缓存性能
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('✅ Service Worker注册成功:', registration.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('❌ Service Worker注册失败:', error);
+                    });
+            });
+        }
+
+        // 启动性能监控
+        measurePerformance();
+    </script>
 
 <div data-v-5122f198="" class="wps_ai_link" style="display: none;"><svg data-v-5122f198="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-5122f198="" d="M0 2C0 0.895431 0.895431 0 2 0H14C15.1046 0 16 0.895431 16 2V14C16 15.1046 15.1046 16 14 16H2C0.895431 16 0 15.1046 0 14V2Z" fill="#1D70F5"></path><path data-v-5122f198="" d="M0 14H16C16 15.1046 15.1046 16 14 16H2C0.895431 16 0 15.1046 0 14Z" fill="#0059E8"></path><path data-v-5122f198="" d="M8 14H16C16 15.1046 15.1046 16 14 16H8V14Z" fill="#3C87FF"></path><path data-v-5122f198="" d="M3.34164 3H4.87711L5.88781 7.62035L7.21221 3.5H8.7878L10.1122 7.62035L11.1229 3H12.6584L10.9084 11H9.62293L8 5.95091L6.37708 11H5.09164L3.34164 3Z" fill="white"></path></svg><!----><!----><span data-v-5122f198="" class="wps_ai_link_title">在线打开</span></div></body></html>

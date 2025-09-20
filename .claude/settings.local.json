@@ -6,7 +6,9 @@
       "Bash(git pull:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(curl:*)",
+      "WebFetch(domain:pagespeed.web.dev)"
     ],
     "deny": [],
     "ask": []
