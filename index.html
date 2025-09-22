@@ -10,14 +10,10 @@
     <!-- 资源预连接和预加载 -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="//aichongzhi.org">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
-    <!-- 预加载关键图片 -->
-    <link rel="preload" href="https://aichongzhi.org/images/image_1756607004003.png" as="image" type="image/png">
 
     <title>ChatGPT Plus充值 - 国内ChatGPT会员代充服务 | 官方安全快速 - AIchongzhi</title>
     <meta name="description" content="专业ChatGPT Plus充值平台，支持国内用户快速升级ChatGPT会员。官方iOS正规代充，20秒完成充值，价格比官方便宜15%。24/7自动充值系统，50000+用户信赖，99.9%成功率。">
@@ -51,33 +47,7 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#14B8A6">
-    <!-- 延迟加载Tailwind CSS -->
-    <script>
-        // 异步加载Tailwind CSS以优化首屏渲染
-        function loadTailwind() {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.tailwindcss.com';
-            script.onload = function() {
-                tailwind.config = {
-                    theme: {
-                        extend: {
-                            fontFamily: {
-                                sans: ['Inter', 'sans-serif']
-                            }
-                        }
-                    }
-                }
-            };
-            document.head.appendChild(script);
-        }
-
-        // 在DOM加载完成后加载Tailwind
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadTailwind);
-        } else {
-            loadTailwind();
-        }
-    </script>
+    <!-- CSS性能优化：移除重复的Tailwind CDN加载，使用内联样式 -->
     <style>
         /* 关键CSS - 首屏渲染优化 */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -126,6 +96,45 @@
             .hero-title { font-size: 2rem; }
             .hero-subtitle { font-size: 1rem; }
             .btn-primary { padding: 0.75rem 1.5rem; margin: 0.25rem; }
+
+            /* 移动端性能优化：禁用动画和过渡效果 */
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            /* 移动端GPU加速优化 */
+            .container {
+                transform: translateZ(0);
+                will-change: auto;
+            }
+
+            /* 移动端简化布局 */
+            .grid {
+                display: block !important;
+            }
+
+            .grid > * {
+                margin-bottom: 1rem;
+            }
+
+            /* 移动端减少阴影效果以提升性能 */
+            .shadow-lg, .shadow-2xl, .shadow-xl {
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+            }
+
+            /* 移动端图片优化 */
+            img {
+                will-change: auto;
+                transform: translateZ(0);
+            }
+
+            /* 移动端禁用hover效果 */
+            .btn-primary:hover {
+                transform: none !important;
+                background-color: #ffffff;
+            }
         }
 
         /* 隐藏滚动条 */
@@ -145,48 +154,13 @@
             overflow: hidden;
         }
 
-        /* 博客侧边栏展开状态 */
-        .blog-panel-open {
-            transform: translateX(0) !important;
-        }
-
-        /* 博客侧边栏收起状态 */
-        .blog-panel-closed {
-            transform: translateX(100%) !important;
-        }
-
-        /* 响应式调整 */
-        @media (max-width: 640px) {
-            #blogSidebar {
-                bottom: 5rem;
-                right: 0.5rem;
-            }
-
-            #blogPanel {
-                width: calc(100vw - 1rem);
-                padding: 1rem;
-                border-radius: 1rem 0 0 1rem;
-            }
-
-            #blogToggle {
-                font-size: 0.75rem;
-                padding: 0.5rem 0.75rem;
-            }
-
-            /* 移动端文章卡片优化 */
-            .blog-article-card {
-                padding: 0.75rem;
-            }
+        /* 图片加载优化 */
+        img[loading="lazy"] {
+            background-color: #f3f4f6;
+            min-height: 200px;
         }
 
         @media (max-width: 768px) {
-            #blogPanel {
-                width: 18rem;
-            }
-
-            #blogSidebar {
-                bottom: 5rem;
-            }
         }
     </style>
 
@@ -285,19 +259,19 @@
             </h1>
             <!-- 信任徽章（响应式优化 - 网页端更大更醒目） -->
             <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8">
-                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-green-400 to-green-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-green-400 to-green-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg">
                     <span class="mr-2 md:mr-3 text-lg md:text-xl">🔒</span>不封号
                 </span>
-                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg">
                     <span class="mr-2 md:mr-3 text-lg md:text-xl">🛡️</span>不泄露账号
                 </span>
-                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-orange-400 to-orange-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-orange-400 to-orange-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg">
                     <span class="mr-2 md:mr-3 text-lg md:text-xl">👥</span>50000+满意客户
                 </span>
-                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-purple-400 to-purple-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-purple-400 to-purple-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg">
                     <span class="mr-2 md:mr-3 text-lg md:text-xl">✅</span>99.9%成功率
                 </span>
-                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-red-400 to-red-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-red-400 to-red-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg">
                     <span class="mr-2 md:mr-3 text-lg md:text-xl">🕒</span>24/7小时在线客服
                 </span>
             </div>
@@ -656,61 +630,6 @@
         </div>
     </footer>
 
-    <!-- 博客侧边栏 -->
-    <div class="fixed bottom-20 right-6 z-40" id="blogSidebar">
-        <!-- 博客标签按钮 -->
-        <div class="flex justify-end mb-3">
-            <button id="blogToggle" class="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-4 py-2 rounded-l-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium text-sm flex items-center space-x-2">
-                <span>📖 博客推荐</span>
-                <span id="toggleArrow" class="transition-transform duration-300">◀</span>
-            </button>
-        </div>
-
-        <!-- 博客内容面板 -->
-        <div id="blogPanel" class="bg-white/95 backdrop-blur-md rounded-l-xl shadow-2xl p-4 w-80 sm:w-72 md:w-80 transform transition-all duration-300 border border-white/20 blog-panel-closed">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-lg font-bold text-gray-800 flex items-center">
-                    <span class="mr-2">📚</span>
-                    推荐阅读
-                </h3>
-                <button id="closeBlog" class="text-gray-500 hover:text-gray-700 text-xl">×</button>
-            </div>
-
-            <!-- 博客文章列表 -->
-            <div class="space-y-3">
-                <div class="blog-article-card flex items-start space-x-3 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500 hover:shadow-md transition-all duration-200 cursor-pointer" onclick="window.open('blog/chatgpt-plus-guide.html', '_blank')">
-                    <span class="text-2xl flex-shrink-0 mt-1">📚</span>
-                    <div class="flex-1">
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="text-xs text-blue-600 font-medium bg-blue-100 px-2 py-1 rounded-full">使用指南</span>
-                            <span class="text-xs text-gray-500">Hot</span>
-                        </div>
-                        <h4 class="text-sm font-semibold text-gray-800 mb-1 line-clamp-2">ChatGPT Plus完整使用指南：从入门到精通</h4>
-                        <p class="text-xs text-gray-600 line-clamp-2">详细介绍ChatGPT Plus的所有功能特性，包括GPT-4模型使用、插件功能...</p>
-                    </div>
-                </div>
-
-                <div class="blog-article-card flex items-start space-x-3 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border-l-4 border-purple-500 hover:shadow-md transition-all duration-200 cursor-pointer" onclick="window.open('blog/chatgpt-plus-vs-pro.html', '_blank')">
-                    <span class="text-2xl flex-shrink-0 mt-1">⚖️</span>
-                    <div class="flex-1">
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="text-xs text-purple-600 font-medium bg-purple-100 px-2 py-1 rounded-full">产品对比</span>
-                            <span class="text-xs text-gray-500">New</span>
-                        </div>
-                        <h4 class="text-sm font-semibold text-gray-800 mb-1 line-clamp-2">ChatGPT Plus与ChatGPT Pro全面对比分析</h4>
-                        <p class="text-xs text-gray-600 line-clamp-2">深入对比ChatGPT Plus和Pro版本的功能差异、性能表现...</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 查看更多按钮 -->
-            <div class="mt-4 pt-3 border-t border-gray-200">
-                <a href="blog/" class="block w-full text-center py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg font-medium text-sm hover:shadow-lg transition-all duration-300">
-                    查看全部文章 →
-                </a>
-            </div>
-        </div>
-    </div>
 
     <!-- 客服悬浮按钮 -->
     <div class="fixed bottom-6 right-6 z-50">
@@ -728,18 +647,30 @@
     </div>
 
     <script>
-        // 页面加载动画
+        // 简化的页面加载（移动端性能优化）
         document.addEventListener('DOMContentLoaded', function() {
+            const isMobile = window.innerWidth <= 768;
             const sections = ['hero', 'reviews', 'steps', 'features', 'trust', 'usage', 'faq'];
-            sections.forEach((id, index) => {
-                const element = document.getElementById(id);
-                if (element) {
-                    setTimeout(() => {
-                        element.classList.add('fade-in');
+
+            if (isMobile) {
+                // 移动端直接显示，不做动画
+                sections.forEach(id => {
+                    const element = document.getElementById(id);
+                    if (element) {
                         element.style.opacity = '1';
-                    }, index * 200);
-                }
-            });
+                    }
+                });
+            } else {
+                // 桌面端保留简化的动画
+                sections.forEach((id, index) => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        setTimeout(() => {
+                            element.style.opacity = '1';
+                        }, index * 50); // 减少延迟
+                    }
+                });
+            }
         });
 
         // 事件追踪 (预留接口)
@@ -802,51 +733,6 @@
             darkModeIcon.textContent = isDark ? '☀️' : '🌙';
         });
 
-        // 博客侧边栏功能
-        const blogToggle = document.getElementById('blogToggle');
-        const blogPanel = document.getElementById('blogPanel');
-        const closeBlog = document.getElementById('closeBlog');
-        const toggleArrow = document.getElementById('toggleArrow');
-        let blogPanelOpen = false; // 默认关闭
-
-        function toggleBlogPanel() {
-            blogPanelOpen = !blogPanelOpen;
-            if (blogPanelOpen) {
-                blogPanel.classList.add('blog-panel-open');
-                blogPanel.classList.remove('blog-panel-closed');
-                toggleArrow.style.transform = 'rotate(180deg)';
-            } else {
-                blogPanel.classList.remove('blog-panel-open');
-                blogPanel.classList.add('blog-panel-closed');
-                toggleArrow.style.transform = 'rotate(0deg)';
-            }
-        }
-
-        function closeBlogPanel() {
-            blogPanelOpen = false;
-            blogPanel.classList.remove('blog-panel-open');
-            blogPanel.classList.add('blog-panel-closed');
-            toggleArrow.style.transform = 'rotate(0deg)';
-        }
-
-        // 事件监听器
-        blogToggle.addEventListener('click', toggleBlogPanel);
-        closeBlog.addEventListener('click', closeBlogPanel);
-
-        // 点击面板外部关闭
-        document.addEventListener('click', function(event) {
-            const isClickInsideBlog = event.target.closest('#blogSidebar');
-            if (!isClickInsideBlog && blogPanelOpen) {
-                closeBlogPanel();
-            }
-        });
-
-        // ESC键关闭面板
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && blogPanelOpen) {
-                closeBlogPanel();
-            }
-        });
 
         // 视频加载完成后隐藏占位符
         const video = document.querySelector('video');
@@ -943,77 +829,5 @@
  
 
 
-    <!-- Service Worker 注册和性能监控 -->
-    <script>
-        // 性能监控
-        function measurePerformance() {
-            if ('performance' in window) {
-                window.addEventListener('load', function() {
-                    setTimeout(function() {
-                        const perfData = performance.getEntriesByType('navigation')[0];
-                        const metrics = {
-                            'DNS查询': Math.round(perfData.domainLookupEnd - perfData.domainLookupStart),
-                            'TCP连接': Math.round(perfData.connectEnd - perfData.connectStart),
-                            '首字节时间(TTFB)': Math.round(perfData.responseStart - perfData.requestStart),
-                            '资源下载': Math.round(perfData.responseEnd - perfData.responseStart),
-                            'DOM解析': Math.round(perfData.domContentLoadedEventEnd - perfData.domLoading),
-                            '页面完全加载': Math.round(perfData.loadEventEnd - perfData.navigationStart)
-                        };
-
-                        console.group('🚀 页面性能指标');
-                        Object.entries(metrics).forEach(([key, value]) => {
-                            console.log(`${key}: ${value}ms`);
-                        });
-                        console.groupEnd();
-
-                        // Core Web Vitals
-                        if ('PerformanceObserver' in window) {
-                            // LCP (Largest Contentful Paint)
-                            new PerformanceObserver((entryList) => {
-                                const entries = entryList.getEntries();
-                                const lastEntry = entries[entries.length - 1];
-                                console.log('🎯 LCP (最大内容绘制):', Math.round(lastEntry.startTime), 'ms');
-                            }).observe({entryTypes: ['largest-contentful-paint']});
-
-                            // FID (First Input Delay)
-                            new PerformanceObserver((entryList) => {
-                                const entries = entryList.getEntries();
-                                entries.forEach((entry) => {
-                                    console.log('⚡ FID (首次输入延迟):', Math.round(entry.processingStart - entry.startTime), 'ms');
-                                });
-                            }).observe({entryTypes: ['first-input']});
-
-                            // CLS (Cumulative Layout Shift)
-                            let clsValue = 0;
-                            new PerformanceObserver((entryList) => {
-                                for (const entry of entryList.getEntries()) {
-                                    if (!entry.hadRecentInput) {
-                                        clsValue += entry.value;
-                                    }
-                                }
-                                console.log('📐 CLS (累积布局偏移):', clsValue.toFixed(4));
-                            }).observe({entryTypes: ['layout-shift']});
-                        }
-                    }, 1000);
-                });
-            }
-        }
-
-        // 注册Service Worker以提升缓存性能
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(function(registration) {
-                        console.log('✅ Service Worker注册成功:', registration.scope);
-                    })
-                    .catch(function(error) {
-                        console.log('❌ Service Worker注册失败:', error);
-                    });
-            });
-        }
-
-        // 启动性能监控
-        measurePerformance();
-    </script>
 
 <div data-v-5122f198="" class="wps_ai_link" style="display: none;"><svg data-v-5122f198="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-5122f198="" d="M0 2C0 0.895431 0.895431 0 2 0H14C15.1046 0 16 0.895431 16 2V14C16 15.1046 15.1046 16 14 16H2C0.895431 16 0 15.1046 0 14V2Z" fill="#1D70F5"></path><path data-v-5122f198="" d="M0 14H16C16 15.1046 15.1046 16 14 16H2C0.895431 16 0 15.1046 0 14Z" fill="#0059E8"></path><path data-v-5122f198="" d="M8 14H16C16 15.1046 15.1046 16 14 16H8V14Z" fill="#3C87FF"></path><path data-v-5122f198="" d="M3.34164 3H4.87711L5.88781 7.62035L7.21221 3.5H8.7878L10.1122 7.62035L11.1229 3H12.6584L10.9084 11H9.62293L8 5.95091L6.37708 11H5.09164L3.34164 3Z" fill="white"></path></svg><!----><!----><span data-v-5122f198="" class="wps_ai_link_title">在线打开</span></div></body></html>
