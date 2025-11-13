@@ -160,6 +160,289 @@
             min-height: 200px;
         }
 
+        /* 呼吸动画效果 - 为推荐产品 */
+        @keyframes breathe {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 15px 40px rgba(249, 115, 22, 0.5);
+            }
+        }
+
+        .breathe-effect {
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        /* 渐变边框效果 */
+        .gradient-border-orange {
+            position: relative;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #f97316, #fb923c) border-box;
+        }
+
+        .gradient-border-blue {
+            position: relative;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #3b82f6, #8b5cf6) border-box;
+        }
+
+        /* 产品卡片高级样式 */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 1.25rem;
+            min-height: 240px;
+            padding: 1.3rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+        }
+
+        @media (min-width: 768px) {
+            .product-card {
+                padding: 1.5rem;
+            }
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-card .product-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1f2937;
+            line-height: 1.35;
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-card .product-header {
+            position: relative;
+            padding-top: 0.25rem;
+        }
+
+        .product-card .product-subtitle {
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 0.35rem;
+        }
+
+        .product-subtitle--orange {
+            color: #fb923c;
+        }
+
+        .product-subtitle--purple {
+            color: #8b5cf6;
+        }
+
+        .product-card .product-price {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .product-card .product-price {
+                font-size: 2.35rem;
+            }
+        }
+
+        .product-card .product-tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+            margin: 0 auto;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .product-card .product-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            text-align: center;
+        }
+
+        .product-card .product-footer {
+            margin-top: 0.5rem;
+        }
+
+        /* 推荐标签动画 */
+        @keyframes bounce-tag {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .recommend-tag {
+            animation: bounce-tag 2s ease-in-out infinite;
+            position: absolute;
+            top: -0.75rem;
+            right: -0.75rem;
+            background: linear-gradient(135deg, #f97316, #ef4444);
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.35);
+        }
+
+        /* 价格数字特效 */
+        .price-text {
+            background: linear-gradient(135deg, #dc2626, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            text-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+        }
+
+        /* 按钮渐变效果 */
+        .btn-gradient-orange {
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient-orange:hover {
+            background: linear-gradient(135deg, #ea580c, #f97316);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-gradient-purple {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient-purple:hover {
+            background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* 发光按钮效果 */
+        .glow-button {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.75rem;
+            box-shadow: 0 22px 55px rgba(137, 180, 255, 0.55);
+        }
+
+        .glow-button::after {
+            content: '';
+            position: absolute;
+            inset: -25%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(99, 102, 241, 0) 70%);
+            opacity: 0.85;
+            filter: blur(20px);
+            animation: pulseGlow 3.2s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                transform: scale(0.85);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.95;
+            }
+        }
+
+        .product-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-weight: 700;
+            color: #ffffff;
+            padding: 0.65rem 0;
+            border-radius: 0.85rem;
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .product-button:hover {
+            text-decoration: none;
+        }
+
+        .product-tag--orange {
+            background: rgba(253, 230, 138, 0.55);
+            color: #c2410c;
+        }
+
+        .product-tag--purple {
+            background: rgba(221, 214, 254, 0.55);
+            color: #6d28d9;
+        }
+
+        .price-text-purple {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            text-shadow: 0 2px 10px rgba(99, 102, 241, 0.25);
+        }
+
+        /* 商品栅格布局 */
+        .products-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .products-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1.15rem;
+            }
+        }
+
+        @media (min-width: 960px) {
+            .products-grid {
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+                gap: 1.35rem;
+            }
+        }
+
+        .products-grid .product-card {
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero-heading {
+                font-size: 2.2rem;
+                line-height: 1.25;
+            }
+
+            .hero-subheading {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                gap: 0.75rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .hero-buttons > * {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 768px) {
         }
     </style>
@@ -250,15 +533,15 @@
 <body class="font-sans bg-white text-gray-900 overflow-x-hidden">
     
     <!-- Hero Section 首屏 -->
-    <section class="min-h-screen flex items-center justify-center px-4 py-20 gradient-bg relative overflow-hidden">
+    <section class="flex items-center justify-center px-4 py-16 md:py-18 gradient-bg relative overflow-hidden" style="min-height:75vh;">
         <div class="absolute inset-0 bg-black/10"></div>
         <div class="container mx-auto text-center relative z-10 opacity-0 fade-in" id="hero" style="opacity: 1;">
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+            <h1 class="hero-heading text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
                 ChatGPT Plus充值服务
-                <span class="block text-3xl md:text-5xl font-light mt-2">国内用户首选的ChatGPT会员升级平台</span>
+                <span class="hero-subheading block text-2xl sm:text-3xl md:text-5xl font-light mt-2">国内用户首选的ChatGPT会员升级平台</span>
             </h1>
             <!-- 信任徽章（响应式优化 - 网页端更大更醒目） -->
-            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8">
+            <div class="hero-badges sm:flex sm:flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8">
                 <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-green-400 to-green-600 text-white text-sm md:text-base font-bold rounded-full border-2 border-white/30 shadow-lg">
                     <span class="mr-2 md:mr-3 text-lg md:text-xl">🔒</span>不封号
                 </span>
@@ -277,13 +560,13 @@
             </div>
             
             <p class="text-xl md:text-2xl text-white/90 mb-8 font-light">
-                20 秒完成充值，永久免费教程
+                <!-- 20 秒完成充值，永久免费教程 -->
             </p>
             
             <!-- 主按钮组 -->
-            <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center mb-12 px-4">
-                <a href="https://fe.dtyuedan.cn/shop/BFB74B07" target="_blank" class="inline-flex items-center px-8 py-4 bg-white text-indigo-600 font-semibold rounded-2xl shadow-lg shadow-white/30 hover:shadow-white/50 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:-translate-y-0.5 hover:scale-105 transition-all duration-300" onclick="trackEvent(&#39;purchase_click&#39;)">
-                    <span>💎 购买卡密</span>
+            <div class="hero-buttons flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center mb-12 px-4">
+                <a href="https://fe.dtyuedan.cn/shop/BFB74B07" target="_blank" class="glow-button inline-flex items-center px-8 py-4 bg-white text-indigo-600 font-semibold rounded-2xl shadow-lg shadow-white/30 hover:shadow-white/50 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:-translate-y-0.5 hover:scale-105 transition-all duration-300" onclick="trackEvent(&#39;purchase_click&#39;)">
+                    <span>💎 进店购买卡密</span>
                 </a>
                 <a href="https://fe.dtyuedan.cn/shop/BFB74B07" target="_blank" class="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-2xl hover:bg-white hover:text-indigo-600 hover:-translate-y-0.5 transition-all duration-300" onclick="trackEvent(&#39;recharge_click&#39;)">
                     <span>⚡ 充值Plus</span>
@@ -304,39 +587,143 @@
                 </div>
             </div>
             
-            <!-- 价格对比 -->
-            <div class="max-w-2xl mx-auto mb-12">
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="flex items-center justify-between p-4 border-b">
-                        <span class="text-lg font-semibold text-gray-900">充值方式</span>
-                        <span class="text-lg font-semibold text-gray-900">价格</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-6 bg-red-50 cursor-pointer hover:bg-red-100 hover:shadow-md hover:scale-[1.02] transition-all duration-300 group" onclick="window.open('https://fe.dtyuedan.cn/shop/BFB74B07', '_blank')">
-                        <span class="text-gray-700">官方充值</span>
-                        <div class="flex items-center">
-                            <span class="text-red-600 font-bold text-xl">¥168</span>
-                            <span class="ml-2 text-red-400 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                <!-- 价格对比 - 高级设计版 -->
+            <div class="relative rounded-[28px] shadow-[0_25px_60px_rgba(15,23,42,0.12)] overflow-hidden mb-14">
+                <div class="absolute inset-0 bg-gradient-to-br from-white via-blue-50/80 to-purple-50/80 opacity-95"></div>
+                <div class="relative px-6 py-8 md:px-10 md:py-12 mx-auto max-w-6xl">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        <!-- 商品种类 -->
+                          
+                    </h2>
+                    <div class="products-grid">
+                        
+                        <!-- 商品卡片1 - ChatGPT Plus 官方充值 -->
+                        <div class="product-card breathe-effect gradient-border-orange">
+                            <div class="product-header">
+                                <span class="recommend-tag">
+                                    ⭐ 推荐
+                                </span>
+                                <h3 class="product-title">
+                                    ChatGPT Plus<br>
+                                    <span class="product-subtitle product-subtitle--orange">官方充值</span>
+                                </h3>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-price price-text">¥168</p>
+                                <p class="product-tag product-tag--orange">自动充值</p>
+                            </div>
+                            <div class="product-footer">
+                                <a href="https://fe.dtyuedan.cn/shop/BFB74B07" target="_blank" 
+                                   class="product-button btn-gradient-orange">
+                                    立即购买
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-center justify-between p-6 bg-blue-50 cursor-pointer hover:bg-blue-100 hover:shadow-md hover:scale-[1.02] transition-all duration-300 group" onclick="window.open('https://fe.dtyuedan.cn/shop/BFB74B07', '_blank')">
-                        <span class="text-gray-700">新号带会员</span>
-                        <div class="flex items-center">
-                            <span class="text-blue-600 font-bold text-xl">¥148</span>
-                            <span class="ml-2 text-blue-400 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        
+                        <!-- 商品卡片2 - ChatGPT Plus 新号带会员 -->
+                        <div class="product-card breathe-effect gradient-border-orange">
+                            <div class="product-header">
+                                <span class="recommend-tag">
+                                    ⭐ 推荐
+                                </span>
+                                <h3 class="product-title">
+                                    ChatGPT Plus<br>
+                                    <span class="product-subtitle product-subtitle--orange">新号带会员</span>
+                                </h3>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-price price-text">¥148</p>
+                                <p class="product-tag product-tag--orange">性价比之选</p>
+                            </div>
+                            <div class="product-footer">
+                                <a href="https://fe.dtyuedan.cn/shop/BFB74B07" target="_blank" 
+                                   class="product-button btn-gradient-orange">
+                                    立即购买
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-center justify-between p-6 bg-green-50 cursor-pointer hover:bg-green-100 hover:shadow-md hover:scale-[1.02] transition-all duration-300 group" onclick="window.open('https://fe.dtyuedan.cn/shop/BFB74B07', '_blank')">
-                        <div class="flex items-center">
-                            <span class="text-gray-700">ChatGPT Go一年会员</span>
-                            <span class="ml-2 px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-full font-medium">联系客服</span>
+                        
+                        <!-- 商品卡片3 - Gemini 2.5 Pro -->
+                        <div class="product-card gradient-border-blue">
+                            <div class="product-header">
+                                <h3 class="product-title">
+                                    Gemini 2.5 Pro<br>
+                                    <span class="product-subtitle product-subtitle--purple">官方会员</span>
+                                </h3>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-price price-text-purple">¥140</p>
+                                <p class="product-tag product-tag--purple">冉冉新星</p>
+                            </div>
+                            <div class="product-footer">
+                                <a href="https://fe.dtyuedan.cn/shop/BFB74B07" target="_blank" 
+                                   class="product-button btn-gradient-purple">
+                                    立即购买
+                                </a>
+                            </div>
                         </div>
-                        <div class="flex items-center">
-                            <span class="text-green-600 font-bold text-xl">¥88</span>
-                            <span class="ml-2 text-green-400 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        
+                        <!-- 商品卡片4 - Grok 官方会员 -->
+                        <div class="product-card gradient-border-blue">
+                            <div class="product-header">
+                                <h3 class="product-title">
+                                    Grok<br>
+                                    <span class="product-subtitle product-subtitle--purple">官方会员</span>
+                                </h3>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-price price-text-purple">¥180</p>
+                                <p class="product-tag product-tag--purple">马斯克牛批</p>
+                            </div>
+                            <div class="product-footer">
+                                <a href="https://fe.dtyuedan.cn/shop/BFB74B07" target="_blank" 
+                                   class="product-button btn-gradient-purple">
+                                    立即购买
+                                </a>
+                            </div>
                         </div>
+                        
+                        <!-- 商品卡片5 - Sora2 邀请码 -->
+                        <div class="product-card gradient-border-blue">
+                            <div class="product-header">
+                                <h3 class="product-title">
+                                    Sora2<br>
+                                    <span class="product-subtitle product-subtitle--purple">邀请码</span>
+                                </h3>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-price price-text-purple">¥30</p>
+                                <p class="product-tag product-tag--purple">丝滑视频</p>
+                            </div>
+                            <div class="product-footer">
+                                <a href="https://fe.dtyuedan.cn/shop/BFB74B07" target="_blank" 
+                                   class="product-button btn-gradient-purple">
+                                    立即购买
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- 商品卡片6 - Claude 官方会员 -->
+                        <div class="product-card gradient-border-blue">
+                            <div class="product-header">
+                                <h3 class="product-title">
+                                    Claude<br>
+                                    <span class="product-subtitle product-subtitle--purple">官方会员</span>
+                                </h3>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-price price-text-purple">¥180</p>
+                                <p class="product-tag product-tag--purple">代码之神</p>
+                            </div>
+                            <div class="product-footer">
+                                <a href="https://fe.dtyuedan.cn/shop/BFB74B07" target="_blank" 
+                                   class="product-button btn-gradient-purple">
+                                    立即购买
+                                </a>
+                            </div>
+                        </div>
+                        
                     </div>
-
                 </div>
             </div>
         </div>
