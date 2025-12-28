@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 页面性能优化 -->
+    <meta http-equiv="Cache-Control" content="max-age=31536000, must-revalidate">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>Gemini 3国内使用完整指南：Deep Think推理+NotebookLM教程 | AIchongzhi博客</title>
+    <meta name="description"
+        content="2025年最新Gemini 3使用教程，详解Deep Think推理模式、Deep Research、NotebookLM Plus功能。手把手教你如何在国内充值和使用Google最强AI。">
+
+    <!-- 关键词优化 -->
+    <meta name="keywords" content="Gemini 3使用教程,Gemini国内使用,Deep Think,NotebookLM,Gemini充值,Google AI,Gemini Advanced">
+
+    <!-- Open Graph标签 -->
+    <meta property="og:title" content="Gemini 3国内使用完整指南：Deep Think推理+NotebookLM教程">
+    <meta property="og:description" content="2025年最新Gemini 3使用教程，详解Deep Think推理模式、Deep Research功能">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aichongzhi.org/blog/gemini-3-guide.html">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+        }
+
+        .toc-item:hover {
+            background-color: #f3f4f6;
+        }
+
+        .toc-active {
+            background-color: #dbeafe;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .prose h2 {
+            scroll-margin-top: 120px;
+        }
+
+        .prose h3 {
+            scroll-margin-top: 120px;
+        }
+    </style>
+
+    <!-- Article结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Gemini 3国内使用完整指南：Deep Think推理+NotebookLM教程",
+        "description": "2025年最新Gemini 3使用教程，详解Deep Think推理模式、Deep Research功能",
+        "author": {
+            "@type": "Organization",
+            "name": "AIchongzhi"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AIchongzhi"
+        },
+        "datePublished": "2025-12-28",
+        "dateModified": "2025-12-28",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://aichongzhi.org/blog/gemini-3-guide.html"
+        }
+    }
+    </script>
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="../" class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">AIchongzhi</a>
+                    <span class="text-gray-400">|</span>
+                    <a href="./" class="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors">博客</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="../" class="text-gray-600 hover:text-blue-600 transition-colors">首页</a>
+                    <a href="../gemini/" class="text-gray-600 hover:text-blue-600 transition-colors">Gemini充值</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto flex gap-8">
+                <!-- Table of Contents -->
+                <aside class="w-80 flex-shrink-0 hidden lg:block">
+                    <div class="sticky top-24">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-900">目录</h3>
+                            <nav class="space-y-2">
+                                <a href="#introduction"
+                                    class="toc-item block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 transition-colors">什么是Gemini
+                                    3</a>
+                                <a href="#getting-started"
+                                    class="toc-item block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 transition-colors">国内如何使用</a>
+                                <a href="#deep-think"
+                                    class="toc-item block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 transition-colors">Deep
+                                    Think推理</a>
+                                <a href="#deep-research"
+                                    class="toc-item block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 transition-colors">Deep
+                                    Research</a>
+                                <a href="#notebooklm"
+                                    class="toc-item block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 transition-colors">NotebookLM
+                                    Plus</a>
+                                <a href="#tips"
+                                    class="toc-item block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 transition-colors">使用技巧</a>
+                                <a href="#faq"
+                                    class="toc-item block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 transition-colors">常见问题</a>
+                            </nav>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <article class="flex-1 max-w-4xl">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <!-- Article Header -->
+                        <header class="mb-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Gemini教程</span>
+                                <span class="text-gray-400 text-sm">2025年12月28日</span>
+                                <span class="text-gray-400 text-sm">约12分钟阅读</span>
+                            </div>
+                            <h1 class="text-4xl font-bold mb-4 text-gray-900">Gemini 3国内使用完整指南：Deep Think推理+NotebookLM教程
+                            </h1>
+                            <p class="text-xl text-gray-600 leading-relaxed">
+                                Google最新发布的Gemini 3 Flash已成为Gemini应用的默认模型。本教程将详细介绍如何在国内使用Gemini 3，包括Deep Think推理模式、Deep
+                                Research Agent和NotebookLM Plus等强大功能。
+                            </p>
+                        </header>
+
+                        <!-- Article Content -->
+                        <div class="prose prose-lg max-w-none">
+                            <section id="introduction">
+                                <h2 class="text-3xl font-bold mb-6 text-gray-900">什么是Gemini 3</h2>
+
+                                <p class="mb-6">Gemini 3是Google于2025年12月发布的最新AI模型，它已经取代Gemini 2.5成为Gemini应用的默认模型。Gemini
+                                    3具有博士级推理能力和显著提升的多模态理解力。</p>
+
+                                <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-6">
+                                    <h3 class="text-lg font-semibold mb-3 text-blue-900">Gemini 3 核心特点</h3>
+                                    <ul class="text-blue-800 space-y-2">
+                                        <li>🧠 <strong>Deep Think推理</strong>：迭代推理解决复杂数学、科学、逻辑问题</li>
+                                        <li>🔬 <strong>Deep Research Agent</strong>：自主规划执行多步研究任务</li>
+                                        <li>📓 <strong>NotebookLM Plus</strong>：AI笔记+播客生成功能</li>
+                                        <li>🎯 <strong>多模态理解</strong>：图片、视频、音频全面理解</li>
+                                        <li>☁️ <strong>2TB云存储</strong>：Google One云存储空间</li>
+                                    </ul>
+                                </div>
+
+                                <h3 class="text-2xl font-semibold mb-4 text-gray-900">Gemini 3 版本对比</h3>
+                                <div class="overflow-x-auto mb-6">
+                                    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                                        <thead class="bg-gray-50">
+                                            <tr>
+                                                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">功能
+                                                </th>
+                                                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">免费版
+                                                </th>
+                                                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">
+                                                    Gemini Advanced</th>
+                                                <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">AI
+                                                    Ultra</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                            <tr>
+                                                <td class="px-4 py-3 text-sm">Gemini 3 Flash</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">✓ 可用</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">✓ 可用</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">✓ 可用</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-3 text-sm">Deep Think推理</td>
+                                                <td class="px-4 py-3 text-sm text-red-600">✗</td>
+                                                <td class="px-4 py-3 text-sm text-yellow-600">有限制</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">✓ 完整版</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-3 text-sm">Deep Research</td>
+                                                <td class="px-4 py-3 text-sm text-red-600">✗</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">✓ 可用</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">✓ 可用</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-3 text-sm">NotebookLM Plus</td>
+                                                <td class="px-4 py-3 text-sm text-red-600">✗</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">✓ 可用</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">✓ 可用</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-3 text-sm">Google One存储</td>
+                                                <td class="px-4 py-3 text-sm">15GB</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">2TB</td>
+                                                <td class="px-4 py-3 text-sm text-green-600">2TB</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+
+                            <section id="getting-started">
+                                <h2 class="text-3xl font-bold mb-6 text-gray-900">国内如何使用Gemini 3</h2>
+
+                                <p class="mb-6">由于Google服务在国内受限，直接访问Gemini需要一些准备工作。以下是完整的使用流程。</p>
+
+                                <h3 class="text-2xl font-semibold mb-4 text-gray-900">准备工作</h3>
+                                <ol class="list-decimal list-inside space-y-3 mb-6">
+                                    <li><strong>科学上网工具</strong>：需要稳定的梯子访问Google服务</li>
+                                    <li><strong>Google账号</strong>：注册或使用已有的Google账号</li>
+                                    <li><strong>Gemini Advanced订阅</strong>：获取完整功能需要付费订阅</li>
+                                </ol>
+
+                                <div class="bg-green-50 border-l-4 border-green-400 p-6 mb-6">
+                                    <h3 class="text-lg font-semibold mb-3 text-green-900">💡 Gemini Advanced充值方案</h3>
+                                    <p class="text-green-800 mb-4">国内用户无法直接订阅Gemini Advanced，我们提供专业的代充服务：</p>
+                                    <ul class="text-green-800 space-y-2">
+                                        <li>✅ ¥158/月，比官方美元价格更优惠</li>
+                                        <li>✅ 20秒极速到账，即充即用</li>
+                                        <li>✅ 包含2TB Google One云存储</li>
+                                        <li>✅ 50000+用户信赖</li>
+                                    </ul>
+                                    <div class="mt-4">
+                                        <a href="../gemini/"
+                                            class="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors">
+                                            🌟 立即充值Gemini Advanced
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-6">
+                                    <h3 class="text-lg font-semibold mb-3 text-yellow-900">⚠️ 重要提示</h3>
+                                    <p class="text-yellow-800">Gemini充值需要提供Google账号密码。我们承诺仅用于充值操作，绝不泄露或挪用您的账号信息。</p>
+                                </div>
+
+                                <h3 class="text-2xl font-semibold mb-4 text-gray-900">访问Gemini的方式</h3>
+                                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-white border border-gray-200 p-4 rounded-lg">
+                                        <h4 class="font-semibold mb-2">🌐 网页版</h4>
+                                        <p class="text-sm text-gray-600">访问 gemini.google.com</p>
+                                    </div>
+                                    <div class="bg-white border border-gray-200 p-4 rounded-lg">
+                                        <h4 class="font-semibold mb-2">📱 手机App</h4>
+                                        <p class="text-sm text-gray-600">Android/iOS Gemini应用</p>
+                                    </div>
+                                    <div class="bg-white border border-gray-200 p-4 rounded-lg">
+                                        <h4 class="font-semibold mb-2">💻 Google AI Studio</h4>
+                                        <p class="text-sm text-gray-600">开发者API测试平台</p>
+                                    </div>
+                                    <div class="bg-white border border-gray-200 p-4 rounded-lg">
+                                        <h4 class="font-semibold mb-2">📓 NotebookLM</h4>
+                                        <p class="text-sm text-gray-600">notebooklm.google.com</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="deep-think">
+                                <h2 class="text-3xl font-bold mb-6 text-gray-900">Deep Think推理模式</h2>
+
+                                <p class="mb-6">Deep Think是Gemini 3最强大的功能之一，它通过迭代推理来解决极其复杂的问题。与普通对话不同，Deep
+                                    Think会"深度思考"后再给出答案。</p>
+
+                                <h3 class="text-2xl font-semibold mb-4 text-gray-900">如何启用Deep Think</h3>
+                                <ol class="list-decimal list-inside space-y-3 mb-6">
+                                    <li>打开Gemini应用或网页版</li>
+                                    <li>在提示栏中找到模型选择下拉菜单</li>
+                                    <li>选择<strong>"思考型"(Thinking)</strong>模式</li>
+                                    <li>提交您的问题，等待Gemini深度推理</li>
+                                </ol>
+
+                                <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                                    <h4 class="font-semibold mb-3">💡 Deep Think适用场景</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li>🔢 <strong>数学问题</strong>：复杂方程、证明推导</li>
+                                        <li>🔬 <strong>科学分析</strong>：物理化学问题、实验设计</li>
+                                        <li>💼 <strong>商业决策</strong>：风险评估、战略规划</li>
+                                        <li>💻 <strong>编程调试</strong>：复杂算法、系统架构</li>
+                                        <li>📊 <strong>研究分析</strong>：文献综述、数据解读</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-6">
+                                    <h4 class="font-semibold text-blue-900 mb-3">使用示例</h4>
+                                    <div class="bg-white p-4 rounded">
+                                        <p class="text-sm text-gray-600 mb-2">用户提问：</p>
+                                        <p class="mb-3 text-gray-900">"请证明：任何大于2的偶数都能表示为两个素数之和（哥德巴赫猜想的验证思路）"</p>
+                                        <p class="text-sm text-gray-600 mb-2">Deep Think回答：</p>
+                                        <p class="text-sm text-gray-700">
+                                            Gemini会进入深度推理模式，逐步分析该猜想的历史背景、已有证明尝试、不同方法的优劣，并给出详细的验证思路...</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="deep-research">
+                                <h2 class="text-3xl font-bold mb-6 text-gray-900">Deep Research Agent</h2>
+
+                                <p class="mb-6">Deep Research是Gemini的自主研究代理功能，它能够独立规划、执行多步骤的研究任务，并生成完整的研究报告。</p>
+
+                                <h3 class="text-2xl font-semibold mb-4 text-gray-900">Deep Research工作流程</h3>
+                                <div class="space-y-4 mb-6">
+                                    <div class="flex items-start">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold mr-3">1</span>
+                                        <div>
+                                            <h4 class="font-semibold">制定研究计划</h4>
+                                            <p class="text-sm text-gray-600">根据您的问题，自动规划研究步骤和信息来源</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold mr-3">2</span>
+                                        <div>
+                                            <h4 class="font-semibold">执行网络搜索</h4>
+                                            <p class="text-sm text-gray-600">自动浏览网页，收集相关数据和资料</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold mr-3">3</span>
+                                        <div>
+                                            <h4 class="font-semibold">综合分析</h4>
+                                            <p class="text-sm text-gray-600">整理和分析收集到的信息，验证可靠性</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold mr-3">4</span>
+                                        <div>
+                                            <h4 class="font-semibold">生成报告</h4>
+                                            <p class="text-sm text-gray-600">输出结构化的研究报告，包含来源引用</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-purple-50 border-l-4 border-purple-400 p-6 mb-6">
+                                    <h4 class="font-semibold text-purple-900 mb-3">适用场景</h4>
+                                    <ul class="text-purple-800 space-y-1">
+                                        <li>📰 行业趋势分析和市场调研</li>
+                                        <li>📚 学术文献综述和论文资料收集</li>
+                                        <li>🏢 竞争对手分析和商业情报</li>
+                                        <li>🌍 新闻事件的多角度分析</li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                            <section id="notebooklm">
+                                <h2 class="text-3xl font-bold mb-6 text-gray-900">NotebookLM Plus</h2>
+
+                                <p class="mb-6">NotebookLM是Google推出的AI笔记工具，现已与Gemini 3深度集成。Gemini
+                                    Advanced用户可以使用NotebookLM Plus的完整功能。</p>
+
+                                <h3 class="text-2xl font-semibold mb-4 text-gray-900">NotebookLM核心功能</h3>
+                                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-green-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-green-900 mb-2">🎙️ Audio Overviews</h4>
+                                        <p class="text-sm text-green-800">将文档转换为AI播客，两位AI主持人讨论您的内容</p>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-blue-900 mb-2">💬 交互式问答</h4>
+                                        <p class="text-sm text-blue-800">基于您的文档进行智能问答，带来源引用</p>
+                                    </div>
+                                    <div class="bg-purple-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-purple-900 mb-2">🗺️ 思维导图</h4>
+                                        <p class="text-sm text-purple-800">自动分析文档结构，生成可视化思维导图</p>
+                                    </div>
+                                    <div class="bg-orange-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-orange-900 mb-2">📝 学习指南</h4>
+                                        <p class="text-sm text-orange-800">自动生成学习指南、摘要和关键点整理</p>
+                                    </div>
+                                </div>
+
+                                <h3 class="text-2xl font-semibold mb-4 text-gray-900">如何使用NotebookLM</h3>
+                                <ol class="list-decimal list-inside space-y-3 mb-6">
+                                    <li>访问 <strong>notebooklm.google.com</strong></li>
+                                    <li>创建新的笔记本</li>
+                                    <li>上传您的资料（PDF、文档、网页链接等）</li>
+                                    <li>点击"Audio Overview"生成AI播客</li>
+                                    <li>在聊天界面向AI提问关于您资料的问题</li>
+                                </ol>
+                            </section>
+
+                            <section id="tips">
+                                <h2 class="text-3xl font-bold mb-6 text-gray-900">Gemini 3使用技巧</h2>
+
+                                <div class="space-y-6 mb-8">
+                                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6">
+                                        <h4 class="font-semibold text-yellow-900 mb-3">💡 技巧1：选择正确的模式</h4>
+                                        <p class="text-yellow-800">日常问答用"快捷"模式，复杂推理用"思考型"模式。Deep Think会花更多时间但给出更深入的答案。
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-blue-50 border-l-4 border-blue-400 p-6">
+                                        <h4 class="font-semibold text-blue-900 mb-3">📋 技巧2：善用多模态</h4>
+                                        <p class="text-blue-800">Gemini 3支持图片、文档上传。直接上传截图让AI分析，比文字描述更准确高效。</p>
+                                    </div>
+
+                                    <div class="bg-green-50 border-l-4 border-green-400 p-6">
+                                        <h4 class="font-semibold text-green-900 mb-3">🎯 技巧3：结合NotebookLM</h4>
+                                        <p class="text-green-800">长文档先上传到NotebookLM，用Audio Overview听一遍概述，再针对性提问。</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="faq">
+                                <h2 class="text-3xl font-bold mb-6 text-gray-900">常见问题</h2>
+
+                                <div class="space-y-6">
+                                    <div class="bg-gray-50 p-6 rounded-lg">
+                                        <h3 class="text-lg font-semibold mb-3 text-gray-900">Q: Gemini 3和ChatGPT哪个更好？
+                                        </h3>
+                                        <p class="text-gray-700">各有优势：Gemini 3的Deep
+                                            Think推理和NotebookLM更强，多模态理解也更好。ChatGPT则在创意写作和插件生态方面更丰富。建议根据实际需求选择。</p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-6 rounded-lg">
+                                        <h3 class="text-lg font-semibold mb-3 text-gray-900">Q: 免费版能用Deep Think吗？</h3>
+                                        <p class="text-gray-700">免费版可以使用基础的Gemini 3 Flash。完整的Deep Think推理需要Gemini
+                                            Advanced或AI Ultra订阅。</p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-6 rounded-lg">
+                                        <h3 class="text-lg font-semibold mb-3 text-gray-900">Q: NotebookLM支持中文吗？</h3>
+                                        <p class="text-gray-700">支持！NotebookLM可以处理中文文档，AI播客功能也提供中文语音，但目前质量以英文最佳。</p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-6 rounded-lg">
+                                        <h3 class="text-lg font-semibold mb-3 text-gray-900">Q: 充值后多久生效？</h3>
+                                        <p class="text-gray-700">通过我们的代充服务，通常20秒内即可完成充值，Gemini Advanced权限立即生效。</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="conclusion">
+                                <h2 class="text-3xl font-bold mb-6 text-gray-900">总结</h2>
+
+                                <p class="mb-6">Gemini 3是目前最强大的多模态AI之一，其Deep
+                                    Think推理和NotebookLM功能在学术研究、商业分析等场景有独特优势。虽然国内使用需要一些准备工作，但体验绝对值得。</p>
+
+                                <div
+                                    class="bg-gradient-to-r from-blue-50 to-green-50 p-8 rounded-2xl border border-blue-200">
+                                    <h3 class="text-xl font-semibold mb-4 text-blue-900">开始您的Gemini 3之旅</h3>
+                                    <p class="text-blue-800 mb-6">准备好体验Google最强AI了吗？我们提供快速、安全、优惠的Gemini Advanced充值服务。
+                                    </p>
+                                    <div class="flex flex-col sm:flex-row gap-4">
+                                        <a href="../gemini/"
+                                            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                                            🌟 立即充值Gemini Advanced
+                                        </a>
+                                        <a href="./"
+                                            class="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg border border-blue-600 hover:bg-blue-50 transition-colors">
+                                            📚 阅读更多教程
+                                        </a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- Article Footer -->
+                        <footer class="mt-12 pt-8 border-t border-gray-200">
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Gemini 3</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Deep Think</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">NotebookLM</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">使用教程</span>
+                            </div>
+
+                            <div class="text-center">
+                                <p class="text-gray-600 mb-4">觉得这篇文章有用吗？分享给更多朋友吧！</p>
+                                <div class="flex justify-center space-x-4">
+                                    <button onclick="copyURL()"
+                                        class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+                                        📋 复制链接
+                                    </button>
+                                    <a href="./"
+                                        class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors">
+                                        📚 阅读更多文章
+                                    </a>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">AIchongzhi</h4>
+                    <p class="text-gray-400">专业AI会员充值服务，支持ChatGPT、Claude、Gemini、Grok</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="../gemini/" class="text-gray-400 hover:text-white transition-colors">Gemini充值</a>
+                        </li>
+                        <li><a href="./" class="text-gray-400 hover:text-white transition-colors">博客</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系我们</h4>
+                    <p class="text-gray-400">客服微信: shouldbeloveyourself</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-500">© 2024 AIchongzhi. 专业AI会员充值服务</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 目录跟踪
+        document.addEventListener('DOMContentLoaded', function () {
+            const tocLinks = document.querySelectorAll('.toc-item');
+            const sections = document.querySelectorAll('section[id]');
+
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                tocLinks.forEach(link => {
+                    link.classList.remove('toc-active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('toc-active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+        });
+
+        function copyURL() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('链接已复制到剪贴板！');
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NotebookLM国内使用完整指南：AI播客生成+智能笔记教程 | AIchongzhi博客</title>
+    <meta name="description"
+        content="2025年最新NotebookLM使用教程，详解Audio Overview播客生成、Lecture讲座模式、思维导图功能。手把手教你在国内使用Google最强AI笔记工具。">
+    <meta name="keywords" content="NotebookLM使用教程,NotebookLM国内使用,Audio Overview,AI播客生成,NotebookLM Plus,Gemini笔记">
+
+    <meta property="og:title" content="NotebookLM国内使用完整指南：AI播客生成+智能笔记教程">
+    <meta property="og:description" content="2025年最新NotebookLM使用教程，详解Audio Overview播客生成功能">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aichongzhi.org/blog/notebooklm-guide.html">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #4285F4 0%, #EA4335 100%);
+        }
+
+        .toc-item:hover {
+            background-color: #f3f4f6;
+        }
+
+        .toc-active {
+            background-color: #fef3c7;
+            border-left: 3px solid #f59e0b;
+        }
+
+        .prose h2 {
+            scroll-margin-top: 120px;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "NotebookLM国内使用完整指南：AI播客生成+智能笔记教程",
+        "description": "2025年最新NotebookLM使用教程",
+        "author": {"@type": "Organization", "name": "AIchongzhi"},
+        "datePublished": "2025-12-28",
+        "dateModified": "2025-12-28"
+    }
+    </script>
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="../" class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">AIchongzhi</a>
+                    <span class="text-gray-400">|</span>
+                    <a href="./"
+                        class="text-lg font-medium text-gray-700 hover:text-orange-600 transition-colors">博客</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="../" class="text-gray-600 hover:text-orange-600 transition-colors">首页</a>
+                    <a href="../gemini/" class="text-gray-600 hover:text-orange-600 transition-colors">Gemini充值</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <article class="bg-white rounded-2xl p-8 shadow-lg">
+                    <!-- Article Header -->
+                    <header class="mb-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span
+                                class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">NotebookLM教程</span>
+                            <span class="text-gray-400 text-sm">2025年12月28日</span>
+                            <span class="text-gray-400 text-sm">约10分钟阅读</span>
+                        </div>
+                        <h1 class="text-4xl font-bold mb-4 text-gray-900">NotebookLM国内使用完整指南：AI播客生成+智能笔记教程</h1>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            NotebookLM是Google推出的革命性AI笔记工具，最强功能是将任何文档转换成AI播客。本教程将详细介绍如何在国内使用NotebookLM，包括Audio
+                            Overview、Lecture模式等最新功能。
+                        </p>
+                    </header>
+
+                    <!-- Article Content -->
+                    <div class="prose prose-lg max-w-none">
+                        <section id="introduction">
+                            <h2 class="text-3xl font-bold mb-6 text-gray-900">什么是NotebookLM</h2>
+
+                            <p class="mb-6">NotebookLM是Google推出的AI驱动笔记应用，由Gemini模型驱动。它最大的特色是<strong>Audio
+                                    Overview（音频概述）</strong>功能——可以将任何文档转换成两位AI主持人对话的播客节目！</p>
+
+                            <div class="bg-orange-50 border-l-4 border-orange-400 p-6 mb-6">
+                                <h3 class="text-lg font-semibold mb-3 text-orange-900">NotebookLM 核心功能</h3>
+                                <ul class="text-orange-800 space-y-2">
+                                    <li>🎙️ <strong>Audio Overview</strong>：将文档转成AI播客</li>
+                                    <li>🎓 <strong>Lecture模式</strong>：单AI主讲讲座（最长30分钟）</li>
+                                    <li>💬 <strong>智能问答</strong>：基于资料的带引用问答</li>
+                                    <li>🗺️ <strong>思维导图</strong>：自动生成知识图谱</li>
+                                    <li>📝 <strong>学习指南</strong>：自动生成摘要和要点</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section id="getting-started">
+                            <h2 class="text-3xl font-bold mb-6 text-gray-900">国内如何使用NotebookLM</h2>
+
+                            <h3 class="text-2xl font-semibold mb-4 text-gray-900">访问准备</h3>
+                            <ol class="list-decimal list-inside space-y-3 mb-6">
+                                <li><strong>科学上网</strong>：需要稳定的梯子访问Google服务</li>
+                                <li><strong>Google账号</strong>：任意Google账号即可免费使用基础功能</li>
+                                <li><strong>Gemini Advanced订阅（可选）</strong>：获取NotebookLM Plus完整体验</li>
+                            </ol>
+
+                            <p class="mb-4">访问地址：<a href="https://notebooklm.google.com"
+                                    class="text-blue-600 hover:underline" target="_blank">notebooklm.google.com</a></p>
+
+                            <div class="bg-green-50 border-l-4 border-green-400 p-6 mb-6">
+                                <h3 class="text-lg font-semibold mb-3 text-green-900">💡 获取完整功能</h3>
+                                <p class="text-green-800 mb-4">NotebookLM Plus（完整版）包含在Gemini Advanced订阅中：</p>
+                                <ul class="text-green-800 space-y-2">
+                                    <li>✅ 更多Audio Overview生成次数</li>
+                                    <li>✅ 更大的笔记本和来源限制</li>
+                                    <li>✅ 团队协作功能</li>
+                                    <li>✅ 2TB Google One云存储</li>
+                                </ul>
+                                <div class="mt-4">
+                                    <a href="../gemini/"
+                                        class="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors">
+                                        🌟 充值Gemini Advanced获取完整版
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="audio-overview">
+                            <h2 class="text-3xl font-bold mb-6 text-gray-900">Audio Overview：AI播客生成</h2>
+
+                            <p class="mb-6">这是NotebookLM最惊艳的功能！上传任何文档，它就能生成一段由两位AI主持人讨论内容的播客音频。非常适合在通勤、运动时"听"资料。</p>
+
+                            <h3 class="text-2xl font-semibold mb-4 text-gray-900">如何生成AI播客</h3>
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-start">
+                                    <span
+                                        class="flex-shrink-0 w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold mr-3">1</span>
+                                    <div>
+                                        <h4 class="font-semibold">创建笔记本</h4>
+                                        <p class="text-sm text-gray-600">打开NotebookLM，点击"新建笔记本"</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span
+                                        class="flex-shrink-0 w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold mr-3">2</span>
+                                    <div>
+                                        <h4 class="font-semibold">上传资料</h4>
+                                        <p class="text-sm text-gray-600">支持PDF、Google文档、网页链接、YouTube视频链接等</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span
+                                        class="flex-shrink-0 w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold mr-3">3</span>
+                                    <div>
+                                        <h4 class="font-semibold">选择Audio Overview</h4>
+                                        <p class="text-sm text-gray-600">在右侧Studio面板点击"生成"按钮</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span
+                                        class="flex-shrink-0 w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold mr-3">4</span>
+                                    <div>
+                                        <h4 class="font-semibold">选择格式</h4>
+                                        <p class="text-sm text-gray-600">Deep
+                                            Dive（6-15分钟）、Brief（1-2分钟）、Critique（评论）、Debate（辩论）</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span
+                                        class="flex-shrink-0 w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold mr-3">5</span>
+                                    <div>
+                                        <h4 class="font-semibold">下载收听</h4>
+                                        <p class="text-sm text-gray-600">生成完成后可在线播放或下载WAV文件</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="text-2xl font-semibold mb-4 text-gray-900">Audio Overview格式选择</h3>
+                            <div class="overflow-x-auto mb-6">
+                                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">格式</th>
+                                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">时长</th>
+                                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-900">适用场景
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-4 py-3 text-sm font-medium">Deep Dive</td>
+                                            <td class="px-4 py-3 text-sm">6-15分钟</td>
+                                            <td class="px-4 py-3 text-sm">深入了解复杂主题</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3 text-sm font-medium">Brief</td>
+                                            <td class="px-4 py-3 text-sm">1-2分钟</td>
+                                            <td class="px-4 py-3 text-sm">快速浏览要点</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3 text-sm font-medium">Critique</td>
+                                            <td class="px-4 py-3 text-sm">5-10分钟</td>
+                                            <td class="px-4 py-3 text-sm">获取论文/报告反馈</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3 text-sm font-medium">Debate</td>
+                                            <td class="px-4 py-3 text-sm">5-10分钟</td>
+                                            <td class="px-4 py-3 text-sm">了解不同观点</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="lecture-mode">
+                            <h2 class="text-3xl font-bold mb-6 text-gray-900">Lecture模式（新功能）</h2>
+
+                            <p class="mb-6">
+                                2025年12月，Google推出了全新的<strong>Lecture讲座模式</strong>！与两人对话的播客不同，Lecture模式由单一AI主讲，更像一堂完整的课程讲解，最长可达30分钟。
+                            </p>
+
+                            <div class="bg-purple-50 border-l-4 border-purple-400 p-6 mb-6">
+                                <h4 class="font-semibold text-purple-900 mb-3">Lecture模式特点</h4>
+                                <ul class="text-purple-800 space-y-2">
+                                    <li>📚 单一主讲人，更像传统授课</li>
+                                    <li>⏱️ 可选短(5分钟)、中(15分钟)、长(30分钟)</li>
+                                    <li>🌍 支持多语言选择</li>
+                                    <li>🎧 适合被动学习和长内容消化</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section id="tips">
+                            <h2 class="text-3xl font-bold mb-6 text-gray-900">使用技巧</h2>
+
+                            <div class="space-y-6 mb-8">
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6">
+                                    <h4 class="font-semibold text-yellow-900 mb-3">💡 技巧1：精选资料来源</h4>
+                                    <p class="text-yellow-800">AI播客的质量取决于上传资料的质量。上传清晰、结构化的文档效果最好。</p>
+                                </div>
+
+                                <div class="bg-blue-50 border-l-4 border-blue-400 p-6">
+                                    <h4 class="font-semibold text-blue-900 mb-3">📋 技巧2：使用自定义指令</h4>
+                                    <p class="text-blue-800">生成前可以添加指令，如"用简单易懂的语言解释"、"重点讲解第三章"等。</p>
+                                </div>
+
+                                <div class="bg-green-50 border-l-4 border-green-400 p-6">
+                                    <h4 class="font-semibold text-green-900 mb-3">🎯 技巧3：先听Brief再Deep Dive</h4>
+                                    <p class="text-green-800">先生成1-2分钟的Brief版本快速了解，再决定是否需要Deep Dive深入。</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="use-cases">
+                            <h2 class="text-3xl font-bold mb-6 text-gray-900">应用场景</h2>
+
+                            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-white border border-gray-200 p-4 rounded-lg">
+                                    <h4 class="font-semibold mb-2">📖 学术研究</h4>
+                                    <p class="text-sm text-gray-600">上传论文PDF，生成播客在通勤时听，快速掌握文献内容</p>
+                                </div>
+                                <div class="bg-white border border-gray-200 p-4 rounded-lg">
+                                    <h4 class="font-semibold mb-2">💼 工作汇报</h4>
+                                    <p class="text-sm text-gray-600">上传会议记录，生成Brief快速回顾决议要点</p>
+                                </div>
+                                <div class="bg-white border border-gray-200 p-4 rounded-lg">
+                                    <h4 class="font-semibold mb-2">📚 备考学习</h4>
+                                    <p class="text-sm text-gray-600">上传教材，生成Lecture讲座，用听的方式复习知识点</p>
+                                </div>
+                                <div class="bg-white border border-gray-200 p-4 rounded-lg">
+                                    <h4 class="font-semibold mb-2">📰 内容创作</h4>
+                                    <p class="text-sm text-gray-600">上传研究资料，生成播客作为创作灵感和素材整理</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="faq">
+                            <h2 class="text-3xl font-bold mb-6 text-gray-900">常见问题</h2>
+
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="text-lg font-semibold mb-3 text-gray-900">Q: NotebookLM免费吗？</h3>
+                                    <p class="text-gray-700">基础版完全免费！可以创建笔记本、生成Audio Overview。NotebookLM
+                                        Plus（更多配额和功能）包含在Gemini Advanced订阅中。</p>
+                                </div>
+
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="text-lg font-semibold mb-3 text-gray-900">Q: 支持中文吗？</h3>
+                                    <p class="text-gray-700">支持！可以上传中文文档，AI也能生成中文播客。但目前英文的语音质量最自然。</p>
+                                </div>
+
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h3 class="text-lg font-semibold mb-3 text-gray-900">Q: 可以上传多少资料？</h3>
+                                    <p class="text-gray-700">每个笔记本最多50个来源，NotebookLM Plus可达300个来源。</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="conclusion">
+                            <div
+                                class="bg-gradient-to-r from-orange-50 to-yellow-50 p-8 rounded-2xl border border-orange-200 mt-8">
+                                <h3 class="text-xl font-semibold mb-4 text-orange-900">开始使用NotebookLM</h3>
+                                <p class="text-orange-800 mb-6">NotebookLM是目前最创新的AI笔记工具，Audio Overview功能让学习变得更轻松。</p>
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <a href="../gemini/"
+                                        class="inline-flex items-center justify-center px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors">
+                                        🌟 获取NotebookLM Plus
+                                    </a>
+                                    <a href="./gemini-3-guide.html"
+                                        class="inline-flex items-center justify-center px-6 py-3 bg-white text-orange-600 font-semibold rounded-lg border border-orange-600 hover:bg-orange-50 transition-colors">
+                                        📖 阅读Gemini 3教程
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Article Footer -->
+                    <footer class="mt-12 pt-8 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">NotebookLM</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Audio Overview</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">AI播客</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">使用教程</span>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 mb-4">AIchongzhi - 专业AI会员充值服务</p>
+            <p class="text-gray-500 text-sm">© 2024 AIchongzhi</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyURL() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('链接已复制到剪贴板！');
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -15,3 +15,6 @@ Allow: /
 
 User-agent: Baiduspider
 Allow: /
+
+# IndexNow key for instant indexing
+# Key file: https://aichongzhi.org/df9b32f51e7f94b074bf9b70d7d227dc.txt

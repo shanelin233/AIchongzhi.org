@@ -3,59 +3,27 @@
   <!-- 首页 - 最高优先级 -->
   <url>
     <loc>https://aichongzhi.org/</loc>
-    <lastmod>2024-12-31</lastmod>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://aichongzhi.org/images/image_1756607004003.png</image:loc>
-      <image:caption>ChatGPT Plus充值客户好评截图</image:caption>
+      <image:caption>AI会员充值客户好评截图</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://aichongzhi.org/images/image_1756607013801.png</image:loc>
-      <image:caption>ChatGPT会员代充成功案例</image:caption>
+      <image:caption>ChatGPT Claude Gemini会员代充成功案例</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://aichongzhi.org/images/image_1756607018341.png</image:loc>
-      <image:caption>ChatGPT充值服务用户推荐</image:caption>
+      <image:caption>AI充值服务用户推荐</image:caption>
     </image:image>
-  </url>
-
-  <!-- FAQ页面锚点 - 重要内容 -->
-  <url>
-    <loc>https://aichongzhi.org/#faq</loc>
-    <lastmod>2024-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- 充值流程部分 -->
-  <url>
-    <loc>https://aichongzhi.org/#steps</loc>
-    <lastmod>2024-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- 客户评价部分 -->
-  <url>
-    <loc>https://aichongzhi.org/#reviews</loc>
-    <lastmod>2024-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- 服务特色部分 -->
-  <url>
-    <loc>https://aichongzhi.org/#features</loc>
-    <lastmod>2024-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
 
   <!-- 博客首页 -->
   <url>
     <loc>https://aichongzhi.org/blog/</loc>
-    <lastmod>2024-12-31</lastmod>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -63,7 +31,7 @@
   <!-- ChatGPT Plus使用指南文章 -->
   <url>
     <loc>https://aichongzhi.org/blog/chatgpt-plus-guide.html</loc>
-    <lastmod>2024-12-31</lastmod>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -71,7 +39,63 @@
   <!-- ChatGPT Plus与Pro对比文章 -->
   <url>
     <loc>https://aichongzhi.org/blog/chatgpt-plus-vs-pro.html</loc>
-    <lastmod>2024-12-31</lastmod>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Gemini充值专页 -->
+  <url>
+    <loc>https://aichongzhi.org/gemini/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Claude充值专页 -->
+  <url>
+    <loc>https://aichongzhi.org/claude/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Grok充值专页 -->
+  <url>
+    <loc>https://aichongzhi.org/grok/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Gemini 3 使用教程 -->
+  <url>
+    <loc>https://aichongzhi.org/blog/gemini-3-guide.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- NotebookLM 使用教程 -->
+  <url>
+    <loc>https://aichongzhi.org/blog/notebooklm-guide.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Claude 使用教程 -->
+  <url>
+    <loc>https://aichongzhi.org/blog/claude-guide.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Grok 使用教程 -->
+  <url>
+    <loc>https://aichongzhi.org/blog/grok-guide.html</loc>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
