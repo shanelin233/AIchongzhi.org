@@ -538,13 +538,6 @@
         </button>
     </div>
 
-    <!-- 暗黑模式切换按钮 -->
-    <div class="fixed top-6 right-6 z-50">
-        <button id="darkModeToggle" class="w-12 h-12 bg-white/20 backdrop-blur-sm text-white rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300">
-            <span id="darkModeIcon">🌙</span>
-        </button>
-    </div>
-
     <script>
         // 页面加载动画
         document.addEventListener('DOMContentLoaded', function() {
@@ -606,16 +599,6 @@
                 }, 300);
             }, 2000);
         }
-
-        // 暗黑模式切换
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const darkModeIcon = document.getElementById('darkModeIcon');
-        
-        darkModeToggle.addEventListener('click', function() {
-            document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
-            darkModeIcon.textContent = isDark ? '☀️' : '🌙';
-        });
 
         // 视频加载完成后隐藏占位符
         const video = document.querySelector('video');
