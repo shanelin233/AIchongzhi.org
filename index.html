@@ -79,13 +79,14 @@
 */.hljs{color:#24292e;background:#fff}.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-template-tag,.hljs-template-variable,.hljs-type,.hljs-variable.language_{color:#d73a49}.hljs-title,.hljs-title.class_,.hljs-title.class_.inherited__,.hljs-title.function_{color:#6f42c1}.hljs-attr,.hljs-attribute,.hljs-literal,.hljs-meta,.hljs-number,.hljs-operator,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-variable{color:#005cc5}.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#032f62}.hljs-built_in,.hljs-symbol{color:#e36209}.hljs-code,.hljs-comment,.hljs-formula{color:#6a737d}.hljs-name,.hljs-quote,.hljs-selector-pseudo,.hljs-selector-tag{color:#22863a}.hljs-subst{color:#24292e}.hljs-section{color:#005cc5;font-weight:700}.hljs-bullet{color:#735c0f}.hljs-emphasis{color:#24292e;font-style:italic}.hljs-strong{color:#24292e;font-weight:700}.hljs-addition{color:#22863a;background-color:#f0fff4}.hljs-deletion{color:#b31d28;background-color:#ffeef0}</style><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln-n:before{content:attr(data-line-number)}</style></head>
 <body class="font-sans bg-white text-gray-900 overflow-x-hidden">
     
-    <!-- 汉堡菜单按钮 -->
-    <button id="menuButton" class="fixed top-6 left-6 z-50 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300">
+    <!-- 菜单按钮 - 更明显的设计 -->
+    <button id="menuButton" class="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 animate-pulse-slow">
         <div class="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
+        <span class="text-sm hidden sm:inline">菜单</span>
     </button>
 
     <!-- 侧边栏导航 -->
@@ -94,7 +95,6 @@
             <!-- 侧边栏头部 -->
             <div class="p-6 border-b border-gray-200">
                 <h2 class="text-2xl font-bold text-gray-900">AI充值服务</h2>
-                <p class="text-sm text-gray-500 mt-1">导航菜单</p>
             </div>
             
             <!-- 导航菜单 -->
@@ -266,29 +266,71 @@
     <section class="py-20 px-4 bg-gray-50">
         <div class="container mx-auto opacity-0 fade-in" id="reviews" style="opacity: 1;">
             <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">客户真实评价</h2>
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- 评价卡片1 - 纯图片展示 -->
+            
+            <!-- 桌面端：网格布局 -->
+            <div class="hidden md:grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="w-full">
                     <img src="images/WX1.png"
                          class="w-full h-auto object-contain rounded-lg"
                          alt="ChatGPT Plus充值客户评价截图 - 真实用户五星好评反馈"
                          loading="lazy">
                 </div>
-
-                <!-- 评价卡片2 - 纯图片展示 -->
                 <div class="w-full">
                     <img src="images/WX3.png"
                          class="w-full h-auto object-contain rounded-lg"
                          alt="AI会员充值服务客户好评 - 安全快速到账用户见证"
                          loading="lazy">
                 </div>
-
-                <!-- 评价卡片3 - 纯图片展示 -->
                 <div class="w-full">
                     <img src="images/WX2.png"
                          class="w-full h-auto object-contain rounded-lg"
                          alt="ChatGPT代充用户评价 - 专业客服优质服务反馈"
                          loading="lazy">
+                </div>
+            </div>
+
+            <!-- 移动端：轮播 -->
+            <div class="md:hidden relative max-w-lg mx-auto">
+                <div id="reviewCarousel" class="overflow-hidden rounded-lg">
+                    <div class="flex transition-transform duration-500 ease-in-out" id="carouselTrack">
+                        <div class="w-full flex-shrink-0">
+                            <img src="images/WX1.png"
+                                 class="w-full h-auto object-contain rounded-lg"
+                                 alt="ChatGPT Plus充值客户评价截图 - 真实用户五星好评反馈"
+                                 loading="lazy">
+                        </div>
+                        <div class="w-full flex-shrink-0">
+                            <img src="images/WX3.png"
+                                 class="w-full h-auto object-contain rounded-lg"
+                                 alt="AI会员充值服务客户好评 - 安全快速到账用户见证"
+                                 loading="lazy">
+                        </div>
+                        <div class="w-full flex-shrink-0">
+                            <img src="images/WX2.png"
+                                 class="w-full h-auto object-contain rounded-lg"
+                                 alt="ChatGPT代充用户评价 - 专业客服优质服务反馈"
+                                 loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 轮播控制按钮 -->
+                <button id="prevBtn" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button id="nextBtn" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                
+                <!-- 指示点 -->
+                <div class="flex justify-center gap-2 mt-4">
+                    <button class="carousel-dot w-2 h-2 rounded-full bg-indigo-600 transition-all" data-index="0"></button>
+                    <button class="carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all" data-index="1"></button>
+                    <button class="carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all" data-index="2"></button>
                 </div>
             </div>
         </div>
@@ -737,6 +779,103 @@
                 fallbackCopy(contactInfo);
             }
         }
+
+        // 移动端评价轮播功能
+        const carouselTrack = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentIndex = 0;
+        const totalSlides = 3;
+
+        function updateCarousel() {
+            if (carouselTrack) {
+                carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // 更新指示点
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.remove('bg-gray-300');
+                        dot.classList.add('bg-indigo-600');
+                    } else {
+                        dot.classList.remove('bg-indigo-600');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+            }
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            });
+        }
+
+        // 指示点点击
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+        // 自动轮播（可选）
+        let autoplayInterval;
+        function startAutoplay() {
+            autoplayInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            }, 5000); // 每5秒切换
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+        }
+
+        // 移动端才启动自动轮播
+        if (window.innerWidth < 768 && carouselTrack) {
+            startAutoplay();
+            
+            // 触摸时停止自动轮播
+            carouselTrack.addEventListener('touchstart', stopAutoplay);
+            carouselTrack.addEventListener('touchend', startAutoplay);
+        }
+
+        // 触摸滑动支持
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        if (carouselTrack) {
+            carouselTrack.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            carouselTrack.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+        }
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // 向左滑动
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            }
+            if (touchEndX > touchStartX + 50) {
+                // 向右滑动
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+        }
     </script>
     
     <!-- 添加弹窗动画样式 -->
@@ -756,6 +895,21 @@
         }
         .animate-bounce-slow {
             animation: bounceSlow 2s ease-in-out infinite;
+        }
+        
+        /* 菜单按钮脉冲效果 */
+        @keyframes pulse-slow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+            }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 2s ease-in-out infinite;
         }
         
         /* 涟漪动画效果 */
@@ -819,8 +973,8 @@
         
         /* 汉堡菜单样式 */
         .hamburger {
-            width: 24px;
-            height: 18px;
+            width: 20px;
+            height: 14px;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -829,15 +983,15 @@
         
         .hamburger span {
             display: block;
-            height: 3px;
+            height: 2px;
             width: 100%;
-            background: linear-gradient(135deg, #14B8A6 0%, #6366F1 100%);
+            background: white;
             border-radius: 2px;
             transition: all 0.3s ease;
         }
         
         .hamburger.active span:nth-child(1) {
-            transform: translateY(7.5px) rotate(45deg);
+            transform: translateY(6px) rotate(45deg);
         }
         
         .hamburger.active span:nth-child(2) {
@@ -845,7 +999,7 @@
         }
         
         .hamburger.active span:nth-child(3) {
-            transform: translateY(-7.5px) rotate(-45deg);
+            transform: translateY(-6px) rotate(-45deg);
         }
         
         /* 侧边栏导航项动画 */

@@ -71,17 +71,33 @@
         .guide-section {
             scroll-margin-top: 100px;
         }
+        
+        /* 菜单按钮脉冲效果 */
+        @keyframes pulse-slow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+            }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 2s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-900">
     
-    <!-- 汉堡菜单按钮 -->
-    <button id="menuButton" class="fixed top-6 left-6 z-50 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300">
+    <!-- 菜单按钮 - 更明显的设计 -->
+    <button id="menuButton" class="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 animate-pulse-slow">
         <div class="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
+        <span class="text-sm hidden sm:inline">菜单</span>
     </button>
 
     <!-- 侧边栏导航 -->
