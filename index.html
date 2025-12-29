@@ -79,6 +79,60 @@
 */.hljs{color:#24292e;background:#fff}.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-template-tag,.hljs-template-variable,.hljs-type,.hljs-variable.language_{color:#d73a49}.hljs-title,.hljs-title.class_,.hljs-title.class_.inherited__,.hljs-title.function_{color:#6f42c1}.hljs-attr,.hljs-attribute,.hljs-literal,.hljs-meta,.hljs-number,.hljs-operator,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-variable{color:#005cc5}.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#032f62}.hljs-built_in,.hljs-symbol{color:#e36209}.hljs-code,.hljs-comment,.hljs-formula{color:#6a737d}.hljs-name,.hljs-quote,.hljs-selector-pseudo,.hljs-selector-tag{color:#22863a}.hljs-subst{color:#24292e}.hljs-section{color:#005cc5;font-weight:700}.hljs-bullet{color:#735c0f}.hljs-emphasis{color:#24292e;font-style:italic}.hljs-strong{color:#24292e;font-weight:700}.hljs-addition{color:#22863a;background-color:#f0fff4}.hljs-deletion{color:#b31d28;background-color:#ffeef0}</style><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln-n:before{content:attr(data-line-number)}</style></head>
 <body class="font-sans bg-white text-gray-900 overflow-x-hidden">
     
+    <!-- 汉堡菜单按钮 -->
+    <button id="menuButton" class="fixed top-6 left-6 z-50 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- 侧边栏导航 -->
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out z-40">
+        <div class="flex flex-col h-full">
+            <!-- 侧边栏头部 -->
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-900">AI充值服务</h2>
+                <p class="text-sm text-gray-500 mt-1">导航菜单</p>
+            </div>
+            
+            <!-- 导航菜单 -->
+            <nav class="flex-1 overflow-y-auto p-4">
+                <a href="index.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">🏠</span>
+                    <span class="font-medium group-hover:text-indigo-600">主页</span>
+                </a>
+                <a href="blog.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">📚</span>
+                    <span class="font-medium group-hover:text-indigo-600">博客</span>
+                </a>
+                <a href="faq.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">❓</span>
+                    <span class="font-medium group-hover:text-indigo-600">常见问题</span>
+                </a>
+                <a href="guide.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">📖</span>
+                    <span class="font-medium group-hover:text-indigo-600">ChatGPT Plus使用指南</span>
+                </a>
+                <a href="comparison.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">🆚</span>
+                    <span class="font-medium group-hover:text-indigo-600">Plus与Pro对比分析</span>
+                </a>
+            </nav>
+            
+            <!-- 侧边栏底部 -->
+            <div class="p-4 border-t border-gray-200">
+                <div class="text-center text-sm text-gray-500">
+                    <p>客服微信：aicz6638</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 遮罩层 -->
+    <div id="overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    
     <!-- Hero Section 首屏 -->
     <section class="min-h-screen flex items-center justify-center px-4 py-20 gradient-bg relative overflow-hidden">
         <div class="absolute inset-0 bg-black/10"></div>
@@ -659,6 +713,35 @@
             }
         }
         
+        // 侧边栏导航功能
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const hamburger = menuButton.querySelector('.hamburger');
+        
+        function toggleSidebar() {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
+            hamburger.classList.toggle('active');
+            
+            if (!sidebar.classList.contains('-translate-x-full')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+        
+        menuButton.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+        
+        // ESC键关闭侧边栏
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !sidebar.classList.contains('-translate-x-full')) {
+                toggleSidebar();
+            }
+        });
+        
         // 复制联系方式功能
         function copyContact(contactInfo) {
             if (navigator.clipboard && window.isSecureContext) {
@@ -749,6 +832,46 @@
         
         .animate-pulse-pop {
             animation: pulse-pop 2s ease-in-out infinite;
+        }
+        
+        /* 汉堡菜单样式 */
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(135deg, #14B8A6 0%, #6366F1 100%);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+        
+        /* 侧边栏导航项动画 */
+        .nav-item {
+            transform: translateX(0);
+        }
+        
+        .nav-item:hover {
+            transform: translateX(5px);
         }
 
     </style>

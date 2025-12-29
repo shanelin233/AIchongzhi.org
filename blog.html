@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客文章 - AI会员充值服务</title>
+    <meta name="description" content="AI充值相关文章和使用指南">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./index_files/css2.css" rel="stylesheet">
+    <script src="./index_files/saved_resource.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        .gradient-bg { background: linear-gradient(135deg, #14B8A6 0%, #6366F1 100%); }
+        .fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 汉堡菜单样式 */
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(135deg, #14B8A6 0%, #6366F1 100%);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+        
+        .nav-item {
+            transform: translateX(0);
+            transition: all 0.2s ease;
+        }
+        
+        .nav-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .article-card {
+            transition: all 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-900">
+    
+    <!-- 汉堡菜单按钮 -->
+    <button id="menuButton" class="fixed top-6 left-6 z-50 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- 侧边栏导航 -->
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out z-40">
+        <div class="flex flex-col h-full">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-900">AI充值服务</h2>
+                <p class="text-sm text-gray-500 mt-1">导航菜单</p>
+            </div>
+            
+            <nav class="flex-1 overflow-y-auto p-4">
+                <a href="index.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">🏠</span>
+                    <span class="font-medium group-hover:text-indigo-600">主页</span>
+                </a>
+                <a href="blog.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">📚</span>
+                    <span class="font-medium text-indigo-600">博客</span>
+                </a>
+                <a href="faq.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">❓</span>
+                    <span class="font-medium group-hover:text-indigo-600">常见问题</span>
+                </a>
+                <a href="guide.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">📖</span>
+                    <span class="font-medium group-hover:text-indigo-600">ChatGPT Plus使用指南</span>
+                </a>
+                <a href="comparison.html" class="nav-item flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 rounded-lg transition-all duration-200 group">
+                    <span class="text-xl mr-3">🆚</span>
+                    <span class="font-medium group-hover:text-indigo-600">Plus与Pro对比分析</span>
+                </a>
+            </nav>
+            
+            <div class="p-4 border-t border-gray-200">
+                <div class="text-center text-sm text-gray-500">
+                    <p>客服微信：aicz6638</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 遮罩层 -->
+    <div id="overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    
+    <!-- 页面头部 -->
+    <section class="gradient-bg py-20 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="container mx-auto text-center relative z-10 opacity-0 fade-in" id="header" style="opacity: 1;">
+            <h1 class="text-5xl font-bold text-white mb-4">📚 博客首页</h1>
+            <p class="text-xl text-white/90">探索AI工具的使用技巧和最新资讯</p>
+        </div>
+    </section>
+
+    <!-- 博客文章列表 -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- 文章卡片1 - ChatGPT Plus使用指南 -->
+                <div class="article-card bg-white rounded-2xl shadow-lg overflow-hidden opacity-0 fade-in" style="opacity: 1;">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-4xl mr-3">📖</span>
+                            <div>
+                                <h2 class="text-2xl font-bold text-gray-900">ChatGPT Plus使用指南</h2>
+                                <p class="text-sm text-gray-500 mt-1">全面了解ChatGPT Plus的功能和使用方法</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            ChatGPT Plus是OpenAI推出的高级订阅服务，提供更快的响应速度、优先访问新功能以及在高峰时段的稳定访问。本指南将帮助您充分利用Plus会员的所有功能。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">ChatGPT</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">使用指南</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Plus会员</span>
+                        </div>
+                        <a href="guide.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300">
+                            阅读全文 →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 文章卡片2 - Plus与Pro对比分析 -->
+                <div class="article-card bg-white rounded-2xl shadow-lg overflow-hidden opacity-0 fade-in" style="opacity: 1; animation-delay: 0.1s;">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-4xl mr-3">🆚</span>
+                            <div>
+                                <h2 class="text-2xl font-bold text-gray-900">Plus与Pro对比分析</h2>
+                                <p class="text-sm text-gray-500 mt-1">深入对比各大AI平台的高级会员服务</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            ChatGPT Plus、Claude Pro、Gemini Advanced如何选择？本文将从功能、价格、使用场景等多个维度进行详细对比，帮助您做出最适合的选择。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">对比分析</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">选购指南</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">深度评测</span>
+                        </div>
+                        <a href="comparison.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300">
+                            阅读全文 →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 文章卡片3 - Gemini Advanced使用技巧 -->
+                <div class="article-card bg-white rounded-2xl shadow-lg overflow-hidden opacity-0 fade-in" style="opacity: 1; animation-delay: 0.2s;">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-4xl mr-3">🌟</span>
+                            <div>
+                                <h2 class="text-2xl font-bold text-gray-900">Gemini Advanced使用技巧</h2>
+                                <p class="text-sm text-gray-500 mt-1">发挥Google AI的最大潜力</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Gemini Advanced是Google最强大的AI模型，支持100万token超长上下文和多模态理解。了解如何利用Deep Research功能进行深度学术研究，以及如何处理长文档分析。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Gemini</span>
+                            <span class="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm">使用技巧</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">进阶教程</span>
+                        </div>
+                        <a href="guide.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-teal-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300">
+                            阅读全文 →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 文章卡片4 - Claude Pro编程实战 -->
+                <div class="article-card bg-white rounded-2xl shadow-lg overflow-hidden opacity-0 fade-in" style="opacity: 1; animation-delay: 0.3s;">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-4xl mr-3">🤖</span>
+                            <div>
+                                <h2 class="text-2xl font-bold text-gray-900">Claude Pro编程实战</h2>
+                                <p class="text-sm text-gray-500 mt-1">代码之神的正确打开方式</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Claude Pro被誉为"代码之神"，在编程领域表现出色。本文将介绍如何使用Claude进行代码审查、调试、重构以及项目开发，充分发挥其200K上下文窗口的优势。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Claude</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">编程开发</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">实战案例</span>
+                        </div>
+                        <a href="guide.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-600 to-red-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300">
+                            阅读全文 →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto text-center">
+            <h3 class="text-2xl font-bold mb-4">AI会员充值服务</h3>
+            <p class="text-gray-400 mb-6">ChatGPT · Claude · Gemini · Grok 安全快速代充</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+                <div class="flex items-center justify-center text-gray-400">
+                    <span class="mr-2">💬</span>
+                    <span>客服微信: aicz6638</span>
+                </div>
+                <div class="flex items-center justify-center text-gray-400">
+                    <span class="mr-2">📱</span>
+                    <span>iOS 正规代充服务</span>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6">
+                <p class="text-gray-500 text-sm">
+                    © 2024 AI会员充值服务. 本站仅提供技术服务，与 OpenAI/Anthropic/Google/xAI 无关联关系。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 侧边栏功能
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const hamburger = menuButton.querySelector('.hamburger');
+        
+        function toggleSidebar() {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
+            hamburger.classList.toggle('active');
+            
+            if (!sidebar.classList.contains('-translate-x-full')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+        
+        menuButton.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+        
+        // ESC键关闭侧边栏
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !sidebar.classList.contains('-translate-x-full')) {
+                toggleSidebar();
+            }
+        });
+
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.getElementById('header').style.opacity = '1';
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>
