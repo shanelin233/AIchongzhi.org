@@ -1,0 +1,50 @@
+name: Baidu SEO Push
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  push-to-baidu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Extract URLs from sitemap
+        id: urls
+        run: |
+          # 提取 sitemap 中的所有 URL
+          URLS=$(grep -oP '(?<=<loc>)[^<]+' sitemap.xml | tr '\n' '\n')
+          echo "urls<<EOF" >> $GITHUB_OUTPUT
+          echo "$URLS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "提取到的 URL:"
+          echo "$URLS"
+      
+      - name: Push to Baidu
+        run: |
+          # 提取 URL 并转换为 www 版本
+          grep -oP '(?<=<loc>)[^<]+' sitemap.xml | sed 's|https://aichongzhi.org|https://www.aichongzhi.org|g' > urls.txt
+          
+          echo "推送以下 URL 到百度:"
+          cat urls.txt
+          echo ""
+          
+          # 调用百度 API
+          RESPONSE=$(curl -s -H 'Content-Type:text/plain' \
+            --data-binary @urls.txt \
+            "http://data.zz.baidu.com/urls?site=https://www.aichongzhi.org&token=${{ secrets.BAIDU_PUSH_TOKEN }}")
+          
+          echo "百度 API 响应:"
+          echo "$RESPONSE"
+          
+          # 检查响应
+          if echo "$RESPONSE" | grep -q '"success"'; then
+            echo "✅ 百度推送成功!"
+          else
+            echo "⚠️ 推送响应，请检查"
+          fi
